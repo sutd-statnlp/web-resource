@@ -25,5 +25,6 @@ module.exports = {
     '!**/node_modules/**',
     '!**/App.vue',
     '!**/filter/index.js'
-  ]
+  ],
+  testURL: 'http://localhost'
 }
