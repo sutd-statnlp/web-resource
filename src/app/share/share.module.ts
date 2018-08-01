@@ -1,25 +1,19 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatButtonModule } from '@angular/material';
-import { CovalentCommonModule } from '@covalent/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    /** Material Modules */
-    MatButtonModule,
-    CovalentCommonModule,
+    FormsModule,
   ],
   declarations: [],
   exports: [
     CommonModule,
     BrowserAnimationsModule,
-    /** Material Modules */
-    MatButtonModule,
-    CovalentCommonModule,
+    FormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
