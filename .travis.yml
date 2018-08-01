@@ -21,7 +21,7 @@ cache:
     - "node_modules"
 
 script:
-  - npm test
+  - npm run cov
   - codecov
 
 after_success:
