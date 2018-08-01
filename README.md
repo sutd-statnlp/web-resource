@@ -1,6 +1,6 @@
 # StatNLP Resource Website
 [![Build Status](https://travis-ci.org/sutd-statnlp/web-resource.svg?branch=master)](https://travis-ci.org/sutd-statnlp/web-resource)
-[![codecov](https://codecov.io/gh/sutd-statnlp/web-resource/branch/master/graph/badge.svg)](https://codecov.io/gh/sutd-statnlp/web-resource)
+[![Coverage Status](https://coveralls.io/repos/github/sutd-statnlp/web-resource/badge.svg?branch=master)](https://coveralls.io/github/sutd-statnlp/web-resource?branch=master)
 [![dependencies Status](https://david-dm.org/sutd-statnlp/web-resource/status.svg)](https://david-dm.org/sutd-statnlp/web-resource)
 [![devDependencies Status](https://david-dm.org/sutd-statnlp/web-resource/dev-status.svg)](https://david-dm.org/sutd-statnlp/web-resource?type=dev)
 [![](https://images.microbadger.com/badges/image/statnlp/web-resource.svg)](https://microbadger.com/images/statnlp/web-resource)
