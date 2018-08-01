@@ -1,30 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 
-import { MatButtonModule } from '@angular/material';
-import { CovalentCommonModule } from '@covalent/core';
+import { AppRouterModule } from './app.router.module';
+import { ShareModule } from './share';
+import { HomeModule } from './pages';
 
-import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { MainComponent, FooterComponent, NavbarComponent } from './layouts';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    MainComponent,
     FooterComponent,
     NavbarComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot([]),
-    /** Material Modules */
-    MatButtonModule,
-    CovalentCommonModule,
+    AppRouterModule,
+    ShareModule,
+    /* Pages Modules */
+    HomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
