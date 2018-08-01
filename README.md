@@ -18,18 +18,18 @@ npm install
 
 ``` bash
 # run unit tests
-npm run unit
-
-# run all tests
 npm test
+
+# run end-to-end tests
+npm run e2e
 ```
 
 ## Build and Run
 
 ``` bash
 
-# serve with hot reload at localhost:8080
-npm run dev
+# serve with hot reload at localhost:4200
+npm start
 
 # build for production with minification
 npm run build
