@@ -31,10 +31,11 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
               <i class="ni ni-collection d-lg-none"></i>
-              <span class="nav-link-inner--text">Groups</span>
+              <span class="nav-link-inner--text">Papers</span>
             </a>
             <div class="dropdown-menu">
-              <a *ngFor="let item of groups" href="#" class="dropdown-item">{{item.name}}</a>
+              <a *ngFor="let item of specialPapers" href="#" class="dropdown-item">{{item.title}}</a>
+              <a href="#" class="dropdown-item">More...</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -44,21 +45,20 @@
             </a>
             <div class="dropdown-menu dropdown-menu-xl">
               <div class="dropdown-menu-inner">
-                <a *ngFor="let item of discussions" href="#" class="media d-flex align-items-center">
+                <a *ngFor="let item of specialDiscussions" href="#" class="media d-flex align-items-center">
                   <div class="media-body ml-3">
-                    <h6 class="heading text-primary mb-md-1">{{item.title}}</h6>
+                    <h6 class="heading text-primary mb-md-1 text-capitalize">{{item.title}}</h6>
                     <p class="description d-none d-md-inline-block mb-0">{{item.sub}}</p>
                   </div>
                 </a>
+                <a href="#" class="media d-flex align-items-center">
+                    <div class="media-body ml-3">
+                      <h6 class="heading text-primary mb-md-1 text-capitalize">More...</h6>
+                    </div>
+                  </a>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-ui-04 d-lg-none"></i>
-                <span class="nav-link-inner--text">Presentations</span>
-              </a>
-            </li>
         </ul>
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
           <li class="nav-item">

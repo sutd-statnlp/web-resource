@@ -1,17 +1,19 @@
 
 
-$primary: #03A9F4;
+$primary: #039BE5;
 $success: #28a745;
 $info: #25A2B7;
 $warning: #ffc107;
 $danger: #dc3545;
 
-
-$theme-colors: () !default;
-$theme-colors: map-merge((
-  primary: $primary,
-  success: $success,
-  info: $info,
-  warning: $warning,
-  danger: $danger,
-), $theme-colors);
+$shapes-default-colors: () !default;
+$shapes-default-colors: map-merge((
+  "step-1-gradient-bg":         #039BE5,
+  "step-2-gradient-bg":         #0277BD,
+  "step-3-gradient-bg":         #01579B,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76eea7,
+  "span-5-bg":                  #6adaff
+), $shapes-default-colors);

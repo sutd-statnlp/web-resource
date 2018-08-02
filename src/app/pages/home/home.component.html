@@ -14,10 +14,53 @@
     </div>
     <div class="container shape-container d-flex">
       <div class="col px-0">
-        <div class="row">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="row row-grid">
+              <div *ngFor="let item of recentDiscussions" class="col-lg-4 mb-5">
+                <div class="card card-lift--hover shadow border-0">
+                  <div class="card-body py-5">
+                    <a href="#">
+                      <h6 class="text-primary text-capitalize">{{item.title}}</h6>
+                    </a>
+                    <span class="text-muted">{{item.date | date: 'dd/MM/yyyy'}}</span>
+                    <p class="description mt-3">
+                      {{item.sub}}
+                    </p>
+                    <div>
+                      <span *ngFor="let tag of item.tags" class="badge badge-pill badge-primary">{{tag}}</span>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <!-- 1st Hero Variation -->
 </div>
+<section class="section section-lg pt-lg-0 mt--300">
+  <div class="container py-0">
+    <div class="row row-grid align-items-center">
+      <div class="col-lg-12 order-lg-1" *ngFor="let item of recentPapers">
+        <div class="card shadow shadow-lg--hover mt-5">
+          <div class="card-body">
+            <div class="d-flex px-3">
+              <div class="pl-2">
+                <a [href]="item.link" target="_blank">
+                  <h5 class="title">Paper: {{item.title}}</h5>
+                </a>
+                <p>{{item.abstract}}</p>
+                <a href="#" class="text-uppercase">Discussion</a> &nbsp;
+                <a [href]="item.link" target="_blank" class="text-uppercase">Link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

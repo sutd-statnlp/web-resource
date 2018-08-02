@@ -22,4 +22,12 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should have list of recent discussions', () => {
+    expect(component.recentDiscussions).not.toBeNull();
+    expect(component.recentDiscussions.length).toBeGreaterThan(0);
+  });
+  it('should have list of recent papers', () => {
+    expect(component.recentPapers).not.toBeNull();
+    expect(component.recentPapers.length).toBeGreaterThan(0);
+  });
 });

@@ -22,12 +22,12 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should have list of groups', () => {
-    expect(component.groups).not.toBeNull();
-    expect(component.groups.length).toBeGreaterThan(0);
+  it('should have list of special papers', () => {
+    expect(component.specialPapers).not.toBeNull();
+    expect(component.specialPapers.length).toBeGreaterThan(0);
   });
-  it('should have list of discussions', () => {
-    expect(component.discussions).not.toBeNull();
-    expect(component.discussions.length).toBeGreaterThan(0);
+  it('should have list of special discussions', () => {
+    expect(component.specialDiscussions).not.toBeNull();
+    expect(component.specialDiscussions.length).toBeGreaterThan(0);
   });
 });
