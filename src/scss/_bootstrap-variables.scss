@@ -1,5 +1,6 @@
 
 
+
 $primary: #039BE5;
 $success: #28a745;
 $info: #25A2B7;
@@ -17,3 +18,8 @@ $shapes-default-colors: map-merge((
   "span-4-bg":                  #76eea7,
   "span-5-bg":                  #6adaff
 ), $shapes-default-colors);
+
+
+$navbar-nav-link-font-size:         1rem !default;
+$font-size-base:              1.1rem !default;
+$paragraph-font-weight:       400 !default;

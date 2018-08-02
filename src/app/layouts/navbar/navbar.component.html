@@ -2,7 +2,9 @@
   <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
     <div class="container">
       <a class="navbar-brand mr-lg-5" href="/">
-        StatNLP RESOURCE
+        <h5 class="text-white">
+          <strong>StatNLP RESOURCE</strong>
+        </h5>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +33,7 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
               <i class="ni ni-collection d-lg-none"></i>
-              <span class="nav-link-inner--text">Papers</span>
+              <span class="nav-link-inner--text font-weight-bold">Papers</span>
             </a>
             <div class="dropdown-menu">
               <a *ngFor="let item of specialPapers" href="#" class="dropdown-item">{{item.title}}</a>
@@ -41,21 +43,24 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
               <i class="ni ni-ui-04 d-lg-none"></i>
-              <span class="nav-link-inner--text">Discussions</span>
+              <span class="nav-link-inner--text font-weight-bold">Discussions</span>
             </a>
             <div class="dropdown-menu dropdown-menu-xl">
               <div class="dropdown-menu-inner">
                 <a *ngFor="let item of specialDiscussions" href="#" class="media d-flex align-items-center">
+                  <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                    <i class="fa fa-comments"></i>
+                  </div>
                   <div class="media-body ml-3">
                     <h6 class="heading text-primary mb-md-1 text-capitalize">{{item.title}}</h6>
                     <p class="description d-none d-md-inline-block mb-0">{{item.sub}}</p>
                   </div>
                 </a>
                 <a href="#" class="media d-flex align-items-center">
-                    <div class="media-body ml-3">
-                      <h6 class="heading text-primary mb-md-1 text-capitalize">More...</h6>
-                    </div>
-                  </a>
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-primary mb-md-1 text-capitalize">More...</h6>
+                  </div>
+                </a>
               </div>
             </div>
           </li>

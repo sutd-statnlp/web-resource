@@ -14,26 +14,25 @@
     </div>
     <div class="container shape-container d-flex">
       <div class="col px-0">
-        <div class="row justify-content-center">
+        <div class="row text-center">
           <div class="col-lg-12">
-            <div class="row row-grid">
-              <div *ngFor="let item of recentDiscussions" class="col-lg-4 mb-5">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <a href="#">
-                      <h6 class="text-primary text-capitalize">{{item.title}}</h6>
-                    </a>
-                    <span class="text-muted">{{item.date | date: 'dd/MM/yyyy'}}</span>
-                    <p class="description mt-3">
-                      {{item.sub}}
-                    </p>
-                    <div>
-                      <span *ngFor="let tag of item.tags" class="badge badge-pill badge-primary">{{tag}}</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
-                  </div>
-                </div>
-              </div>
+            <h1 class="display-1 text-white">StatNLP Resources
+            </h1>
+            <span class="display-4 text-white">share with everyone</span>
+            <p class="lead text-white font-weight-bold">We share our papers, discussions and more. Let's discover what we have!</p>
+            <div class="btn-wrapper">
+              <a href="#" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                <span class="btn-inner--icon">
+                  <i class="fa fa-book"></i>
+                </span>
+                <span class="btn-inner--text">All Papers</span>
+              </a>
+              <a href="#" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                <span class="btn-inner--icon">
+                  <i class="ni ni-collection"></i>
+                </span>
+                <span class="btn-inner--text">Dicussions</span>
+              </a>
             </div>
           </div>
         </div>
@@ -42,20 +41,99 @@
   </section>
   <!-- 1st Hero Variation -->
 </div>
-<section class="section section-lg pt-lg-0 mt--300">
+<section class="section section-lg pt-lg-0 mt--200">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="row row-grid">
+          <div *ngFor="let item of recentDiscussions" class="col-lg-6">
+            <div class="card card-lift--hover shadow border-0">
+              <div class="card-body py-5">
+                <a href="#">
+                  <h6 class="text-capitalize font-weight-bold">{{item.title}}</h6>
+                </a>
+                <span class="text-muted">{{item.date | date: 'dd MMMM yyyy'}}</span>
+                <p class="description mt-3 text-black">
+                  {{item.sub}}
+                </p>
+                <div>
+                  <span *ngFor="let tag of item.tags" class="badge badge-pill badge-primary mr-1">{{tag}}</span>
+                </div>
+                <a href="#" class="btn btn-primary mt-4">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section section-shaped my-0 overflow-hidden">
+  <div class="shape shape-style-1 shape-skew">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <div class="container py-0">
     <div class="row row-grid align-items-center">
-      <div class="col-lg-12 order-lg-1" *ngFor="let item of recentPapers">
-        <div class="card shadow shadow-lg--hover mt-5">
+      <div class="col-lg-6 order-lg-1">
+        <div class="d-flex px-3">
+          <div>
+            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+              <i class="ni ni-books text-primary"></i>
+            </div>
+          </div>
+          <div class="pl-4">
+            <h4 class="display-3">Interesting Papers</h4>
+          </div>
+        </div>
+        <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
           <div class="card-body">
-            <div class="d-flex px-3">
-              <div class="pl-2">
+            <div class="d-flex px-0">
+              <div>
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="ni ni-paper-diploma"></i>
+                </div>
+              </div>
+              <div class="pl-4">
                 <a [href]="item.link" target="_blank">
-                  <h5 class="title">Paper: {{item.title}}</h5>
+                  <h5 class="title text-primary font-weight-bold">{{item.title}}</h5>
                 </a>
-                <p>{{item.abstract}}</p>
-                <a href="#" class="text-uppercase">Discussion</a> &nbsp;
-                <a [href]="item.link" target="_blank" class="text-uppercase">Link</a>
+                <p class="text-black">{{item.abstract}}</p>
+                <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="d-flex px-3">
+          <div>
+            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+              <i class="fa fa-paper-plane text-primary"></i>
+            </div>
+          </div>
+          <div class="pl-4">
+            <h4 class="display-3">New Papers</h4>
+          </div>
+        </div>
+        <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
+          <div class="card-body">
+            <div class="d-flex px-0">
+              <div>
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-newspaper-o"></i>
+                </div>
+              </div>
+              <div class="pl-4">
+                <a [href]="item.link" target="_blank">
+                  <h5 class="title text-primary font-weight-bold">{{item.title}}</h5>
+                </a>
+              <p class="text-black">{{item.abstract}}</p>
+                <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
               </div>
             </div>
           </div>
