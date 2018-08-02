@@ -1,3 +1,92 @@
-<p>
-  Navbar
-</p>
+<header class="header-global">
+  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
+    <div class="container">
+      <a class="navbar-brand mr-lg-5" href="/">
+        StatNLP RESOURCE
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <strong>
+                <a href="/">
+                  StatNLP RESOURCE
+                </a>
+              </strong>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Groups</span>
+            </a>
+            <div class="dropdown-menu">
+              <a *ngFor="let item of groups" href="#" class="dropdown-item">{{item.name}}</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span class="nav-link-inner--text">Discussions</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl">
+              <div class="dropdown-menu-inner">
+                <a *ngFor="let item of discussions" href="#" class="media d-flex align-items-center">
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-primary mb-md-1">{{item.title}}</h6>
+                    <p class="description d-none d-md-inline-block mb-0">{{item.sub}}</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                <i class="ni ni-ui-04 d-lg-none"></i>
+                <span class="nav-link-inner--text">Presentations</span>
+              </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://gitlab.com/sutd_nlp" target="_blank" data-toggle="tooltip" title="Follow us on GitLab">
+              <i class="fa fa-gitlab"></i>
+              <span class="nav-link-inner--text d-lg-none">GitLab</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://github.com/sutd-statnlp" target="_blank" data-toggle="tooltip" title="Star us on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="nav-link-inner--text d-lg-none">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="http://statnlp.org" target="_blank" data-toggle="tooltip" title="Meet us at SUTD">
+              <i class="fa fa-university"></i>
+              <span class="nav-link-inner--text d-lg-none">SUTD</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="http://statnlp.org" target="_blank" data-toggle="tooltip" title="About us on website">
+              <i class="fa fa-globe"></i>
+              <span class="nav-link-inner--text d-lg-none">StatNLP</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

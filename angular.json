@@ -26,9 +26,11 @@
               "src/scss/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js"
+              "node_modules/@statnlp/resource-uikit/assets/vendor/jquery/jquery.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/popper/popper.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/bootstrap/bootstrap.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/headroom/headroom.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/js/argon.min.js"
             ]
           },
           "configurations": {
@@ -79,9 +81,11 @@
               "src/scss/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js"
+              "node_modules/@statnlp/resource-uikit/assets/vendor/jquery/jquery.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/popper/popper.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/bootstrap/bootstrap.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/vendor/headroom/headroom.min.js",
+              "node_modules/@statnlp/resource-uikit/assets/js/argon.min.js"
             ],
             "assets": [
               "src/favicon.ico",

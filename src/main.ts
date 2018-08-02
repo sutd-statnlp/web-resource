@@ -8,8 +8,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-declare var $: any;
-$(document).ready(function() { $('body').bootstrapMaterialDesign(); });
-
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
