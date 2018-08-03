@@ -41,4 +41,7 @@ export class DiscussionService {
   all(): any {
     return this.recent()
   }
+  get(id: string): any {
+    return this.recent()[0];
+  }
 }

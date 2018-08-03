@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRouterModule } from './app.router.module';
 import { ShareModule } from './share';
-import { HomeModule } from './pages';
+import { HomeModule, DiscussionModule } from './pages';
 
 import { MainComponent, FooterComponent, NavbarComponent } from './layouts';
 
@@ -18,7 +18,8 @@ import { MainComponent, FooterComponent, NavbarComponent } from './layouts';
     AppRouterModule,
     ShareModule,
     /* Pages Modules */
-    HomeModule
+    HomeModule,
+    DiscussionModule
   ],
   providers: [],
   bootstrap: [MainComponent]
