@@ -41,7 +41,7 @@
   </section>
   <!-- 1st Hero Variation -->
 </div>
-<section class="section section-lg pt-lg-0 mt--200">
+<section class="section section-lg pt-lg-0 mt--200 pb-0">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
@@ -68,8 +68,44 @@
     </div>
   </div>
 </section>
+<section class="section section-lg section-nucleo-icons pb-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3">SUTD StatNLP</h2>
+        <p class="lead">
+          We are NLP and Big Data Research Group that focuses on solving novel research problems in the NLP, machine learning and big data.
+        </p>
+      </div>
+    </div>
+    <div>
+      <a href="http://statnlp.org" target="_blank">
+        <div class="icons-container blur-item mt-5 on-screen">
+          <!-- Center -->
+          <i class="icon fa fa-users"></i>
+          <!-- Right 1 -->
+          <i class="icon icon-sm fa fa-language"></i>
+          <i class="icon icon-sm ni ni-app"></i>
+          <i class="icon icon-sm ni ni-atom"></i>
+          <!-- Right 2 -->
+          <i class="icon fa fa-gears"></i>
+          <i class="icon ni ni-bulb-61"></i>
+          <i class="icon fa fa-server"></i>
+          <!-- Left 1 -->
+          <i class="icon icon-sm ni ni-world-2"></i>
+          <i class="icon icon-sm fa fa-share-alt"></i>
+          <i class="icon icon-sm ni ni-button-play"></i>
+          <!-- Left 2 -->
+          <i class="icon fa fa-database"></i>
+          <i class="icon ni ni-ui-04"></i>
+          <i class="icon ni ni-chart-bar-32"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 <section class="section section section-shaped my-0 overflow-hidden">
-  <div class="shape shape-style-1 shape-skew">
+  <div class="shape shape-style-1 shape-default shape-skew">
     <span></span>
     <span></span>
     <span></span>
@@ -87,7 +123,7 @@
             </div>
           </div>
           <div class="pl-4">
-            <h4 class="display-3">Interesting Papers</h4>
+            <h4 class="display-3 text-white">Interesting Papers</h4>
           </div>
         </div>
         <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
@@ -100,7 +136,7 @@
               </div>
               <div class="pl-4">
                 <a [href]="item.link" target="_blank">
-                  <h5 class="title text-primary font-weight-bold">{{item.title}}</h5>
+                  <h5 class="title font-weight-bold">{{item.title}}</h5>
                 </a>
                 <p class="text-black">{{item.abstract}}</p>
                 <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
@@ -117,7 +153,7 @@
             </div>
           </div>
           <div class="pl-4">
-            <h4 class="display-3">New Papers</h4>
+            <h4 class="display-3 text-white">New Papers</h4>
           </div>
         </div>
         <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
@@ -130,7 +166,7 @@
               </div>
               <div class="pl-4">
                 <a [href]="item.link" target="_blank">
-                  <h5 class="title text-primary font-weight-bold">{{item.title}}</h5>
+                  <h5 class="title font-weight-bold">{{item.title}}</h5>
                 </a>
               <p class="text-black">{{item.abstract}}</p>
                 <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
@@ -138,6 +174,19 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-lg pb-0">
+  <div class="container">
+    <div class="row row-grid justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3">Let us know what you think !
+          <span class="text-primary">Share with us your resources <i class="fa fa-smile-o"></i></span>
+        </h2>
+        <p class="lead">If you find StatNLP resources helpful, please share with others! </p>
+        <div class="sharethis-inline-share-buttons"></div>
       </div>
     </div>
   </div>
