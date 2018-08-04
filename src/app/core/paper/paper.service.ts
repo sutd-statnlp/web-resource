@@ -59,6 +59,9 @@ export class PaperService {
     ]
   }
   all(): any {
-    return this.recent()
+    return this.recent();
+  }
+  get(id: string): any {
+    return this.recent()[0];
   }
 }

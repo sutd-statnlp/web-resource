@@ -27,4 +27,7 @@ describe('PaperService', () => {
     expect(papers).not.toBeNull();
     expect(papers.length).toBeGreaterThan(0);
   }));
+  it('should return a paper with id', inject([PaperService], (service: PaperService) => {
+    expect(service.get('AAAA')).not.toBeNull();
+  }));
 });
