@@ -1,3 +1,66 @@
-<p>
-  discussion-detail
-</p>
+<section class="section section-shaped section-lg my-0">
+  <div class="shape shape-style-1 shape-default shape-skew">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center profile-page mt-lg">
+      <div class="col-lg-10">
+        <div class="card card-profile shadow border-0">
+          <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+                  <a href="#" class="btn btn-sm btn-primary mr-4">Previous</a>
+                  <a href="#" class="btn btn-sm btn-primary float-right">Next</a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-start">
+                  <div>
+                    <span class="heading">{{discussion.attendees}}</span>
+                    <span class="description">Attendees</span>
+                  </div>
+                  <div>
+                    <span class="heading">{{discussion.sections.length}}</span>
+                    <span class="description">Sections</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <h3>{{discussion.title}}</h3>
+              <div class="h6 font-weight-300">
+                <i class="ni location_pin mr-2"></i>{{discussion.date | date:'dd MMMM yyyy'}}</div>
+              <div class="h6 mt-4">
+                <span *ngFor="let tag of discussion.tags" class="badge badge-pill badge-primary mr-1">{{tag}}</span>
+              </div>
+            </div>
+            <div class="mt-4 py-4 border-top text-left text-black">
+              <div class="row justify-content-center">
+                <div class="col-lg-10 text-justify">
+                  <p *ngFor="let item of discussion.sections">{{item}}</p>
+                  <div class="alert alert-default" role="alert">
+                    <strong>Next meeting: </strong> {{discussion.nextMeeting}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
