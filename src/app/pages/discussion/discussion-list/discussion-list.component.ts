@@ -10,7 +10,7 @@ import { SpeechRecognitionService } from '../../../share';
 export class DiscussionListComponent implements OnInit {
   discussions: any;
   recognition: any;
-  searchModel: any;
+  searchModel: string;
 
   constructor(
     private discussionService: DiscussionService,
@@ -18,18 +18,30 @@ export class DiscussionListComponent implements OnInit {
   ) {
     this.searchModel = '';
     this.recognition = this.recognitionService.create();
+    this.recognition.onresult = this.handleRecognitionResult;
+    this.recognition.onerror = this.handleRecognitionError;
   }
 
   ngOnInit() {
     this.discussions = this.discussionService.all();
   }
 
-  startDictation() {
+  startDictation(): boolean {
     if (!this.recognition) {
       return false;
     }
     let recognition = this.recognition;
     recognition.start();
     return true;
+  }
+  handleRecognitionResult(event: any): boolean{
+    if (!event) {
+      return false;
+    }
+    this.searchModel = event.results[0][0].transcript;
+    return true;
+  }
+  handleRecognitionError(event: any): boolean {
+    return !event;
   }
 }

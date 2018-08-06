@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiscussionListComponent } from './discussion-list.component';
+import { FormsModule } from '@angular/forms';
+
 
 describe('DiscussionListComponent', () => {
   let component: DiscussionListComponent;
@@ -8,9 +10,10 @@ describe('DiscussionListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiscussionListComponent ]
+      imports: [FormsModule],
+      declarations: [DiscussionListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -30,9 +33,24 @@ describe('DiscussionListComponent', () => {
     expect(component.searchModel).not.toBeNull();
     expect(component.searchModel).toEqual('');
   });
-  it('startDictation should return true', () => {
+  it('startDictation should return true when recognition is not null ', () => {
     expect(component.startDictation()).toBeTruthy();
     component.recognition = null;
     expect(component.startDictation()).toBeFalsy();
+  });
+  it('handleRecognitionResult should return true and pass it into searchModel', () => {
+    const transcript = 'AAAA';
+    expect(component.handleRecognitionResult(
+      {
+        results: [[{
+          transcript: transcript
+        }]]
+      }
+    )).toBeTruthy();
+    expect(component.searchModel).toEqual(transcript);
+  });
+  it('handleRecognitionError should return false when have the event', () => {
+    expect(component.handleRecognitionError({})).toBeFalsy();
+    expect(component.handleRecognitionError(null)).toBeTruthy();
   });
 });
