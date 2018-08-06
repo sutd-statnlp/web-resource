@@ -1,3 +1,33 @@
-<p>
-  discussion-list
-</p>
+<section class="section section-shaped section-lg my-0">
+  <div class="shape shape-style-1 shape-default shape-skew">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center mb-lg">
+      <div class="col-lg-6">
+        <div class="form-group shadow-lg--hover">
+          <div class="input-group input-group-alternative mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+            <input [(ngModel)]="searchModel" class="form-control form-control-alternative text-black input-search" placeholder="Search" type="text">
+            <div class="input-group-prepend">
+              <a (click)="startDictation()" class="input-group-text a-microphone">
+                <i class="fa fa-microphone"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

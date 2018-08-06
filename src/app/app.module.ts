@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRouterModule } from './app.router.module';
+import { AppRouterModule } from './app-routing.module';
 import { ShareModule } from './share';
 import { HomeModule, DiscussionModule, PaperModule } from './pages';
 

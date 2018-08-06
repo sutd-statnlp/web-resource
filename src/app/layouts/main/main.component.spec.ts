@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppRouterModule } from '../../app.router.module';
+import { AppRouterModule } from '../../app-routing.module';
 
 import { MainComponent } from './main.component';
 import { NavbarComponent } from '../navbar/navbar.component';

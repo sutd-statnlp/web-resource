@@ -26,4 +26,13 @@ describe('DiscussionListComponent', () => {
     expect(component.discussions).not.toBeNull();
     expect(component.discussions.length).toBeGreaterThan(0);
   });
+  it('should have search model', () => {
+    expect(component.searchModel).not.toBeNull();
+    expect(component.searchModel).toEqual('');
+  });
+  it('startDictation should return true', () => {
+    expect(component.startDictation()).toBeTruthy();
+    component.recognition = null;
+    expect(component.startDictation()).toBeFalsy();
+  });
 });
