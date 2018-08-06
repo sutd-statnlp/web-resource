@@ -30,4 +30,9 @@ describe('PaperService', () => {
   it('should return a paper with id', inject([PaperService], (service: PaperService) => {
     expect(service.get('AAAA')).not.toBeNull();
   }));
+  it('should return list of new papers', inject([PaperService], (service: PaperService) => {
+    let papers = service.news()
+    expect(papers).not.toBeNull();
+    expect(papers.length).toBeGreaterThan(0);
+  }));
 });

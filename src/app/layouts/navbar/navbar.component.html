@@ -1,7 +1,7 @@
 <header class="header-global">
   <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
     <div class="container">
-      <a class="navbar-brand mr-lg-5" href="/">
+      <a class="navbar-brand mr-lg-5" [routerLink]="['/']">
         <h5 class="text-white">
           <strong>StatNLP RESOURCE</strong>
         </h5>
@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <strong>
-                <a href="/">
+                <a [routerLink]="['/']">
                   StatNLP RESOURCE
                 </a>
               </strong>
@@ -31,23 +31,23 @@
         </div>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+            <a class="nav-link" data-toggle="dropdown" role="button">
               <i class="ni ni-collection d-lg-none"></i>
               <span class="nav-link-inner--text font-weight-bold">Papers</span>
             </a>
             <div class="dropdown-menu">
-              <a *ngFor="let item of specialPapers" href="#" class="dropdown-item">{{item.title}}</a>
-              <a href="#" class="dropdown-item">More...</a>
+              <a *ngFor="let item of specialPapers" [routerLink]="['/papers/' + item.id]" class="dropdown-item">{{item.title}}</a>
+              <a [routerLink]="['/papers']" class="dropdown-item">More...</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+            <a class="nav-link" data-toggle="dropdown" role="button">
               <i class="ni ni-ui-04 d-lg-none"></i>
               <span class="nav-link-inner--text font-weight-bold">Discussions</span>
             </a>
             <div class="dropdown-menu dropdown-menu-xl">
               <div class="dropdown-menu-inner">
-                <a *ngFor="let item of specialDiscussions" href="#" class="media d-flex align-items-center">
+                <a *ngFor="let item of specialDiscussions" [routerLink]="['/discussions/' + item.id]" class="media d-flex align-items-center">
                   <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                     <i class="fa fa-comments"></i>
                   </div>
@@ -56,7 +56,7 @@
                     <p class="description d-none d-md-inline-block mb-0">{{item.sub}}</p>
                   </div>
                 </a>
-                <a href="#" class="media d-flex align-items-center">
+                <a [routerLink]="['/discussions']" class="media d-flex align-items-center">
                   <div class="media-body ml-3">
                     <h6 class="heading text-primary mb-md-1 text-capitalize">More...</h6>
                   </div>

@@ -1,0 +1,18 @@
+<div class="card shadow shadow-lg--hover">
+  <div class="card-body">
+    <div class="d-flex px-0">
+      <div>
+        <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+          <i [class]="icon"></i>
+        </div>
+      </div>
+      <div class="pl-4">
+        <a [routerLink]="['/papers/' + paper.id]">
+          <h5 class="title font-weight-bold">{{paper.title}}</h5>
+        </a>
+        <p class="text-black">{{paper.abstract}}</p>
+        <a [routerLink]="['/papers/' + paper.id]" class="text-primary">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>

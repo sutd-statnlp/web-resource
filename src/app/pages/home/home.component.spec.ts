@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { DiscussionItemComponent, PaperItemComponent } from '../../components';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
@@ -8,9 +10,10 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [RouterTestingModule],
+      declarations: [HomeComponent, DiscussionItemComponent, PaperItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,5 +32,9 @@ describe('HomeComponent', () => {
   it('should have list of recent papers', () => {
     expect(component.recentPapers).not.toBeNull();
     expect(component.recentPapers.length).toBeGreaterThan(0);
+  });
+  it('should have list of new papers', () => {
+    expect(component.newPapers).not.toBeNull();
+    expect(component.newPapers.length).toBeGreaterThan(0);
   });
 });

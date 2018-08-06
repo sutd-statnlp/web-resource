@@ -10,6 +10,7 @@ import { DiscussionService, PaperService } from '../../core';
 export class HomeComponent implements OnInit {
   recentPapers: any;
   recentDiscussions: any;
+  newPapers: any;
 
   constructor(
     private discussionService: DiscussionService,
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.recentPapers = this.paperService.recent();
     this.recentDiscussions = this.discussionService.recent();
+    this.newPapers = this.paperService.news();
   }
 
 }

@@ -9,6 +9,7 @@ export class DiscussionService {
   special(): any {
     return [
       {
+        id: '99a756e2-bfd9-49db-b193-9b2cc0c4cae4',
         title: 'Modelling the past and future',
         sub: `Presentation of paper "Modelling the past and future for neural machine translation" by Allan.`,
         date: new Date('2018-07-25'),
@@ -22,6 +23,7 @@ export class DiscussionService {
         nextMeeting: 'Presentation of paper "Attention is All You Need" by Zhang Yan.'
       },
       {
+        id: 'a3950520-12df-4f67-bf2c-fb8f80377a83',
         title: 'Using structure-label system',
         sub: `We discussed the paper on constituency parsing using structure-label system and provably optimal dynamic oracles.`,
         date: new Date('2018-07-31'),

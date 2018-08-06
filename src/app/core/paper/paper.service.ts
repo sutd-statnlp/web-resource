@@ -13,6 +13,7 @@ export class PaperService {
   recent(): any {
     return [
       {
+        id: 'f94c9f99-aff8-4466-88fd-85717c20438c',
         title: 'Modelling the past and future for neural machine translation',
         abstract: `Existing neural machine translation systems
         do not explicitly model what has been translated
@@ -24,6 +25,7 @@ export class PaperService {
         pages: 4
       },
       {
+        id: 'e6fcc1c7-4583-4686-a147-39af058489f0',
         title: 'Joint Embedding of Words and Labels for Text Classification',
         abstract: `Word embeddings are effective intermediate representations for capturing semantic regularities between words, when learning the representations of text sequences...`,
         link: 'https://arxiv.org/abs/1805.04174',
@@ -32,6 +34,9 @@ export class PaperService {
         pages: 11
       }
     ]
+  }
+  news(): any {
+    return this.recent();
   }
   all(): any {
     return this.recent();

@@ -21,13 +21,13 @@
             <span class="display-4 text-white">share with everyone</span>
             <p class="lead text-white font-weight-bold">We share our papers, discussions and more. Let's discover what we have!</p>
             <div class="btn-wrapper">
-              <a href="#" class="btn btn-white btn-icon mb-3 mb-sm-0">
+              <a [routerLink]="['/papers']" class="btn btn-white btn-icon mb-3 mb-sm-0">
                 <span class="btn-inner--icon">
                   <i class="fa fa-book"></i>
                 </span>
                 <span class="btn-inner--text">All Papers</span>
               </a>
-              <a href="#" class="btn btn-white btn-icon mb-3 mb-sm-0">
+              <a [routerLink]="['/discussions']" class="btn btn-white btn-icon mb-3 mb-sm-0">
                 <span class="btn-inner--icon">
                   <i class="ni ni-collection"></i>
                 </span>
@@ -47,21 +47,7 @@
       <div class="col-lg-12">
         <div class="row row-grid">
           <div *ngFor="let item of recentDiscussions" class="col-lg-6">
-            <div class="card card-lift--hover shadow border-0">
-              <div class="card-body py-5">
-                <a href="#">
-                  <h6 class="text-capitalize font-weight-bold">{{item.title}}</h6>
-                </a>
-                <span class="text-muted">{{item.date | date: 'dd MMMM yyyy'}}</span>
-                <p class="description mt-3 text-black">
-                  {{item.sub}}
-                </p>
-                <div>
-                  <span *ngFor="let tag of item.tags" class="badge badge-pill badge-primary mr-1">{{tag}}</span>
-                </div>
-                <a href="#" class="btn btn-primary mt-4">Read more</a>
-              </div>
-            </div>
+            <app-discussion-item [discussion]="item"></app-discussion-item>
           </div>
         </div>
       </div>
@@ -74,7 +60,8 @@
       <div class="col-lg-8 text-center">
         <h2 class="display-3">SUTD StatNLP</h2>
         <p class="lead ">
-          We are NLP and Big Data Research Group that focuses on solving novel research problems in the NLP, machine learning and big data.
+          We are NLP and Big Data Research Group that focuses on solving novel research problems in the NLP, machine learning and big
+          data.
         </p>
       </div>
     </div>
@@ -126,23 +113,8 @@
             <h4 class="display-3 text-white">Interesting Papers</h4>
           </div>
         </div>
-        <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
-          <div class="card-body">
-            <div class="d-flex px-0">
-              <div>
-                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                  <i class="ni ni-paper-diploma"></i>
-                </div>
-              </div>
-              <div class="pl-4">
-                <a [href]="item.link" target="_blank">
-                  <h5 class="title font-weight-bold">{{item.title}}</h5>
-                </a>
-                <p class="text-black">{{item.abstract}}</p>
-                <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
-              </div>
-            </div>
-          </div>
+        <div *ngFor="let item of recentPapers" class="mt-5">
+          <app-paper-item [paper]="item"></app-paper-item>
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
@@ -156,23 +128,8 @@
             <h4 class="display-3 text-white">New Papers</h4>
           </div>
         </div>
-        <div class="card shadow shadow-lg--hover mt-5" *ngFor="let item of recentPapers">
-          <div class="card-body">
-            <div class="d-flex px-0">
-              <div>
-                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                  <i class="fa fa-newspaper-o"></i>
-                </div>
-              </div>
-              <div class="pl-4">
-                <a [href]="item.link" target="_blank">
-                  <h5 class="title font-weight-bold">{{item.title}}</h5>
-                </a>
-              <p class="text-black">{{item.abstract}}</p>
-                <a [href]="item.link" target="_blank" class="text-primary">Read more</a>
-              </div>
-            </div>
-          </div>
+        <div *ngFor="let item of recentPapers" class="mt-5">
+          <app-paper-item [paper]="item" icon="fa fa-newspaper-o"></app-paper-item>
         </div>
       </div>
     </div>
@@ -183,7 +140,9 @@
     <div class="row row-grid justify-content-center">
       <div class="col-lg-8 text-center">
         <h2 class="display-3">Let us know what you think !
-          <span class="text-primary">Share with us your resources <i class="fa fa-smile-o"></i></span>
+          <span class="text-primary">Share with us your resources
+            <i class="fa fa-smile-o"></i>
+          </span>
         </h2>
         <p class="lead">If you find StatNLP resources helpful, please share with others! </p>
         <div class="sharethis-inline-share-buttons"></div>
