@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SpeechRecognitionService } from '../../share/recognition/speech-recognition.service';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-box',
@@ -30,7 +32,7 @@ export class SearchBoxComponent implements OnInit {
     recognition.start();
     return true;
   }
-  handleRecognitionResult(event: any): boolean{
+  handleRecognitionResult(event: any): boolean {
     if (!event) {
       return false;
     }
@@ -39,5 +41,11 @@ export class SearchBoxComponent implements OnInit {
   }
   handleRecognitionError(event: any): boolean {
     return !event;
+  }
+  searchTypeAhead(textObs: Observable<string>): Observable<string[]> {
+    return textObs.pipe(debounceTime(200),
+      distinctUntilChanged(),
+      map(term => [])
+    );
   }
 }

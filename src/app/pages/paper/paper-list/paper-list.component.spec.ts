@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaperListComponent } from './paper-list.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule } from '@angular/forms';
-
+import { FakeShareModule } from '~/../test';
 import { PaperItemComponent, SearchBoxComponent } from '../../../components';
 
 describe('PaperListComponent', () => {
@@ -12,7 +10,7 @@ describe('PaperListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, FormsModule],
+      imports: [FakeShareModule],
       declarations: [ PaperListComponent, PaperItemComponent, SearchBoxComponent]
     })
     .compileComponents();

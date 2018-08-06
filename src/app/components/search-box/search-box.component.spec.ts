@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBoxComponent } from './search-box.component';
-import { FormsModule } from '@angular/forms';
+import { FakeShareModule } from '~/../test';
+import { Observable } from 'rxjs';
 
 describe('SearchBoxComponent', () => {
   let component: SearchBoxComponent;
@@ -9,7 +10,7 @@ describe('SearchBoxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FakeShareModule],
       declarations: [ SearchBoxComponent ]
     })
     .compileComponents();
@@ -51,5 +52,8 @@ describe('SearchBoxComponent', () => {
   });
   it('should have a placeholder', () => {
     expect(component.placeholder).not.toBeNull();
+  });
+  it('should have a searchTypeAhead', () => {
+    expect(component.searchTypeAhead(new Observable<string>())).not.toBeNull();
   });
 });

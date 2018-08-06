@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { DiscussionListComponent } from './discussion-list.component';
-import { FormsModule } from '@angular/forms';
-
 import { DiscussionItemComponent, SearchBoxComponent } from '../../../components';
+import { FakeShareModule } from '~/../test';
 
 describe('DiscussionListComponent', () => {
   let component: DiscussionListComponent;
@@ -11,7 +9,7 @@ describe('DiscussionListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterTestingModule],
+      imports: [FakeShareModule],
       declarations: [DiscussionListComponent, DiscussionItemComponent, SearchBoxComponent]
     })
       .compileComponents();
