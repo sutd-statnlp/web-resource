@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DiscussionItemComponent implements OnInit {
   @Input() discussion: any;
+  @Input() hoverAction: string = 'card-lift--hover';
 
   constructor() { }
 

@@ -29,7 +29,7 @@
               </a>
               <a [routerLink]="['/discussions']" class="btn btn-white btn-icon mb-3 mb-sm-0">
                 <span class="btn-inner--icon">
-                  <i class="ni ni-collection"></i>
+                  <i class="fa fa-comments"></i>
                 </span>
                 <span class="btn-inner--text">Dicussions</span>
               </a>
@@ -131,21 +131,6 @@
         <div *ngFor="let item of recentPapers" class="mt-5">
           <app-paper-item [paper]="item" icon="fa fa-newspaper-o"></app-paper-item>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section section-lg pb-0">
-  <div class="container">
-    <div class="row row-grid justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="display-3">Let us know what you think !
-          <span class="text-primary">Share with us your resources
-            <i class="fa fa-smile-o"></i>
-          </span>
-        </h2>
-        <p class="lead">If you find StatNLP resources helpful, please share with others! </p>
-        <div class="sharethis-inline-share-buttons"></div>
       </div>
     </div>
   </div>

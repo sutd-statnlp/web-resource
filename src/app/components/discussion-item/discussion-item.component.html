@@ -1,4 +1,4 @@
-<div class="card card-lift--hover shadow border-0">
+<div [class]="'card shadow border-0 ' + hoverAction">
   <div class="card-body py-5">
     <a [routerLink]="['/discussions/' + discussion.id]">
       <h6 class="text-capitalize font-weight-bold">{{discussion.title}}</h6>

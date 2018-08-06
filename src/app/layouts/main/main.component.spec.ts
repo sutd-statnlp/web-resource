@@ -5,6 +5,7 @@ import { AppRouterModule } from '../../app-routing.module';
 import { MainComponent } from './main.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ShareSectionComponent } from '../share-section/share-section.component';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -16,7 +17,8 @@ describe('MainComponent', () => {
       declarations: [
         MainComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        ShareSectionComponent
       ]
     })
       .compileComponents();

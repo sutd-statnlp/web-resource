@@ -8,10 +8,13 @@ import { PaperService } from '../../../core';
 })
 export class PaperListComponent implements OnInit {
   papers: any;
+  searchModel: string;
 
   constructor(
     private paperService: PaperService
-  ) { }
+  ) {
+    this.searchModel = '';
+  }
 
   ngOnInit() {
     this.papers = this.paperService.all();

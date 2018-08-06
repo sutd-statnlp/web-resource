@@ -5,13 +5,14 @@ import { AppRouterModule } from './app-routing.module';
 import { ShareModule } from './share';
 import { HomeModule, DiscussionModule, PaperModule } from './pages';
 
-import { MainComponent, FooterComponent, NavbarComponent } from './layouts';
+import { MainComponent, FooterComponent, NavbarComponent, ShareSectionComponent } from './layouts';
 
 @NgModule({
   declarations: [
     MainComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ShareSectionComponent
   ],
   imports: [
     BrowserModule,

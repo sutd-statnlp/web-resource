@@ -42,7 +42,7 @@ export class DiscussionService {
     return this.special();
   }
   all(): any {
-    return this.recent()
+    return this.recent().concat(this.recent());
   }
   get(id: string): any {
     return this.recent()[0];

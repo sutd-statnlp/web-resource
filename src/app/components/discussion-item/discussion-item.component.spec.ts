@@ -33,4 +33,7 @@ describe('DiscussionItemComponent', () => {
   it('should have a discussion', () => {
     expect(component.discussion).not.toBeNull();
   });
+  it('should have hover action', () => {
+    expect(component.hoverAction).not.toBeNull();
+  });
 });

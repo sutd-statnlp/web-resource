@@ -15,7 +15,7 @@ import { DISCUSSION_LIST_ROUTE, DiscussionListComponent } from './discussion-lis
   ],
   declarations: [
     DiscussionDetailComponent,
-    DiscussionListComponent
+    DiscussionListComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
