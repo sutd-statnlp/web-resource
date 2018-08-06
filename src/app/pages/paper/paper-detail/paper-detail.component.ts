@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 import { PaperService } from '../../../core';
 
 @Component({
@@ -13,7 +14,8 @@ export class PaperDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private paperService: PaperService
+    private paperService: PaperService,
+    private sanitizer: DomSanitizer
   ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
   }
@@ -22,4 +24,7 @@ export class PaperDetailComponent implements OnInit {
     this.paper = this.paperService.get(this.id);
   }
 
+  sanitizeResourceUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }

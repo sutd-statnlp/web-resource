@@ -37,7 +37,11 @@ describe('PaperDetailComponent', () => {
     expect(component.id).not.toBeNull();
     expect(component.id).toEqual(DEFAULT_ID);
   });
-  it('should a paper', () => {
+  it('should have a paper', () => {
     expect(component.paper).not.toBeNull();
+  });
+  it('sanitizeUrl should return safe url', () => {
+    expect(component.sanitizeResourceUrl('https://arxiv.org/abs/1805.04174'))
+    .not.toBeNull();
   });
 });
