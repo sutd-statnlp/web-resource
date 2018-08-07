@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DiscussionListComponent } from './discussion-list.component';
 import { DiscussionItemComponent, SearchBoxComponent } from '../../../components';
+import { DiscussionListPipe } from './discussion-list.pipe';
 import { FakeShareModule } from '~/../test';
 
 describe('DiscussionListComponent', () => {
@@ -10,7 +11,12 @@ describe('DiscussionListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FakeShareModule],
-      declarations: [DiscussionListComponent, DiscussionItemComponent, SearchBoxComponent]
+      declarations: [
+        DiscussionListComponent,
+        DiscussionItemComponent,
+        SearchBoxComponent,
+        DiscussionListPipe
+      ]
     })
       .compileComponents();
   }));
@@ -40,5 +46,14 @@ describe('DiscussionListComponent', () => {
   it('should list of discussion keywords', () => {
     expect(component.discussionKeywords).not.toBeNull();
     expect(component.discussionKeywords.length).toBeGreaterThan(0);
+  });
+  it('isSearching should return true or false', () => {
+    expect(component.isSearching()).toBeFalsy();
+
+    component.searchText = ' ';
+    expect(component.isSearching()).toBeFalsy();
+
+    component.searchText = 'a ';
+    expect(component.isSearching()).toBeTruthy();
   });
 });

@@ -25,4 +25,8 @@ export class PaperListComponent implements OnInit {
   searchModelEvent(text: string) {
     this.searchText = text;
   }
+
+  isSearching(): boolean {
+    return this.searchText.trim() !== '';
+  }
 }

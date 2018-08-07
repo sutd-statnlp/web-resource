@@ -10,14 +10,14 @@ import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent implements OnInit {
-  searchModel: string;
-  @Output() searchModelEvent: EventEmitter<string>;
   @Input() placeholder: string;
-  recognition: any;
   @Input() texts: string[];
+  @Output() searchModelEvent: EventEmitter<string>;
+  @ViewChild('typeAheadInstance') typeAheadInstance: NgbTypeahead;
+  searchModel: string;
+  recognition: any;
   focusSubject: Subject<string>;
   clickSubject: Subject<String>;
-  @ViewChild('typeAheadInstance') typeAheadInstance: NgbTypeahead;
 
   constructor(
     private recognitionService: SpeechRecognitionService
@@ -66,5 +66,8 @@ export class SearchBoxComponent implements OnInit {
         ).slice(0, 4)
       )
       ));
+  }
+  submitSearch() {
+    this.searchModelEvent.emit(this.searchModel);
   }
 }

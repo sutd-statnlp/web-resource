@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { ShareModule } from '../../share';
 
 import { DISCUSSION_DETAIL_ROUTE, DiscussionDetailComponent } from './discussion-detail';
-import { DISCUSSION_LIST_ROUTE, DiscussionListComponent } from './discussion-list';
+import { DISCUSSION_LIST_ROUTE, DiscussionListComponent, DiscussionListPipe } from './discussion-list';
 
 @NgModule({
   imports: [
@@ -16,6 +16,7 @@ import { DISCUSSION_LIST_ROUTE, DiscussionListComponent } from './discussion-lis
   declarations: [
     DiscussionDetailComponent,
     DiscussionListComponent,
+    DiscussionListPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
