@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'vendor';
 
+@import 'vendor';
 .text-black {
-  color: black!important;
+  color: black !important;
 }
+
 ngb-typeahead-window {
-  top: 48px!important;
-  left: 0px!important;
-  border-radius: 0px!important;
+  top: 48px !important;
+  left: 0px !important;
+  border-radius: 0px !important;
   width: 100.2% !important;
 }

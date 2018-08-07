@@ -1,2 +1,2 @@
-export * from './dicussion'
+export * from './discussion'
 export * from './paper'

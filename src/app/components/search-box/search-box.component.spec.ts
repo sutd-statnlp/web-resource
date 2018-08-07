@@ -46,6 +46,7 @@ describe('SearchBoxComponent', () => {
       }
     )).toBeTruthy();
     expect(component.searchModel).toEqual(transcript);
+    expect(component.handleRecognitionResult(null)).toBeFalsy();
   });
   it('handleRecognitionError should return false when have the event', () => {
     expect(component.handleRecognitionError({})).toBeFalsy();
