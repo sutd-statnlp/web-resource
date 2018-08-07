@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { SpeechRecognitionService } from '../../share/recognition/speech-recognition.service';
 import { Observable, Subject, merge } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, filter } from 'rxjs/operators';
@@ -14,24 +14,33 @@ export class SearchBoxComponent implements OnInit {
   @Input() texts: string[];
   @Output() searchModelEvent: EventEmitter<string>;
   @ViewChild('typeAheadInstance') typeAheadInstance: NgbTypeahead;
+  @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
   searchModel: string;
   recognition: any;
   focusSubject: Subject<string>;
   clickSubject: Subject<String>;
 
   constructor(
-    private recognitionService: SpeechRecognitionService
+    public recognitionService: SpeechRecognitionService
   ) {
     this.searchModel = '';
     this.searchModelEvent = new EventEmitter<string>();
-    this.recognition = this.recognitionService.create();
-    this.recognition.onresult = this.handleRecognitionResult.bind(this);
-    this.recognition.onerror = this.handleRecognitionError.bind(this);
+    this.recognition = this.configRecognition();
     this.focusSubject = new Subject<string>();
     this.clickSubject = new Subject<string>();
   }
 
   ngOnInit() {
+  }
+
+  configRecognition(): any {
+    let recognition = this.recognitionService.create();
+    if (recognition) {
+      recognition.onresult = this.handleRecognitionResult.bind(this);
+      recognition.onerror = this.handleRecognitionError.bind(this);
+      recognition.onspeechend = () => this.recognition.stop();
+    }
+    return recognition;
   }
 
   startDictation(): boolean {
@@ -42,16 +51,17 @@ export class SearchBoxComponent implements OnInit {
     recognition.start();
     return true;
   }
-  handleRecognitionResult(event: any): boolean {
+  handleRecognitionResult(event: any) {
     if (!event) {
       return false;
     }
     this.searchModel = event.results[0][0].transcript;
     this.searchModelEvent.emit(this.searchModel);
+    this.searchInput.nativeElement.focus();
     return true;
   }
   handleRecognitionError(event: any): boolean {
-    return !event;
+    return event ? true : false;
   }
   searchTypeAhead = (textObs: Observable<string>) => {
     let texts = this.texts;

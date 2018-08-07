@@ -48,15 +48,18 @@ describe('SearchBoxComponent', () => {
     expect(component.searchModel).toEqual(transcript);
     expect(component.handleRecognitionResult(null)).toBeFalsy();
   });
-  it('handleRecognitionError should return false when have the event', () => {
-    expect(component.handleRecognitionError({})).toBeFalsy();
-    expect(component.handleRecognitionError(null)).toBeTruthy();
+  it('handleRecognitionError should return true when have the event', () => {
+    expect(component.handleRecognitionError({})).toBeTruthy();
+    expect(component.handleRecognitionError(null)).toBeFalsy();
   });
   it('should have a undefined input of placeholder ', () => {
     expect(component.placeholder).toBeUndefined()
   });
   it('should have a searchTypeAhead', () => {
     expect(component.searchTypeAhead(new Observable<string>())).not.toBeNull();
+  });
+  it('should have a searchInput', () => {
+    expect(component.searchInput).not.toBeNull();
   });
   it('should have a undefined input of list of keywords', () => {
     expect(component.texts).toBeUndefined();
@@ -66,5 +69,8 @@ describe('SearchBoxComponent', () => {
   });
   it('should have a focus subject', () => {
     expect(component.clickSubject).not.toBeNull();
+  });
+  it('configRecognition should return recognition', () => {
+    expect(component.configRecognition()).not.toBeNull();
   });
 });

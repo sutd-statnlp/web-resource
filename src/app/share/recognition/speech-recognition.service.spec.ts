@@ -13,7 +13,12 @@ describe('SpeechRecognitionService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('create function should return not null ', inject([SpeechRecognitionService], (service: SpeechRecognitionService) => {
+  it('create function should return a recognition or null ', inject([SpeechRecognitionService], (service: SpeechRecognitionService) => {
     expect(service.create()).not.toBeNull();
+    service.init = () => null;
+    expect(service.create()).toBeNull();
+  }));
+  it('init should return a recognition or null', inject([SpeechRecognitionService], (service: SpeechRecognitionService) => {
+    expect(service.init()).not.toBeNull();
   }));
 });

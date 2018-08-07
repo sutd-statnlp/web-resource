@@ -4,14 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SpeechRecognitionService {
+  init(): any {
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      return new window['webkitSpeechRecognition']()
+    }
+    if (window.hasOwnProperty('SpeechRecognition')) {
+      return new window['SpeechRecognition']()
+    }
+    return null;
+  }
   create(): any {
-    if (!window.hasOwnProperty('webkitSpeechRecognition')) {
+    let recognition = this.init();
+
+    if (!recognition) {
       return null;
     }
-    let recognition = new window['webkitSpeechRecognition']();
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.lang = "en-US";
+    recognition.maxAlternatives = 1;
     return recognition;
   }
 }

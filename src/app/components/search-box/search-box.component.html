@@ -8,8 +8,8 @@
       </div>
       <input name="searchModel" [(ngModel)]="searchModel" [ngbTypeahead]="searchTypeAhead" class="form-control form-control-alternative text-black input-search"
         [placeholder]="placeholder" (focus)="focusSubject.next($event.target.value)" (click)="clickSubject.next($event.target.value)"
-        #typeAheadInstance="ngbTypeahead" [focusFirst]="false" type="text">
-      <div class="input-group-prepend" placement="bottom" container="body" ngbTooltip="Search by voice">
+        #typeAheadInstance="ngbTypeahead" #searchInput [focusFirst]="false" type="text">
+      <div *ngIf="recognition" class="input-group-prepend" placement="bottom" container="body" ngbTooltip="Search by voice">
         <a (click)="startDictation()" href="javascript:;" class="input-group-text a-microphone">
           <i class="fa fa-microphone"></i>
         </a>
