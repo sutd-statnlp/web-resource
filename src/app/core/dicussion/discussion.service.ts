@@ -4,7 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DiscussionService {
-  constructor() {
+  getTitles(): string[] {
+    let titles = [];
+    this.all().forEach(item => {
+      titles.push(item.title);
+    });
+    return titles;
   }
   special(): any {
     return [

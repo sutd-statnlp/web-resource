@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { SpeechRecognitionService } from '../../share/recognition/speech-recognition.service';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Observable, Subject, merge } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, filter } from 'rxjs/operators';
+import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-box',
@@ -9,16 +10,25 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent implements OnInit {
-  @Input() searchModel: string;
+  searchModel: string;
+  @Output() searchModelEvent: EventEmitter<string>;
   @Input() placeholder: string;
   recognition: any;
+  @Input() texts: string[];
+  focusSubject: Subject<string>;
+  clickSubject: Subject<String>;
+  @ViewChild('typeAheadInstance') typeAheadInstance: NgbTypeahead;
 
   constructor(
     private recognitionService: SpeechRecognitionService
   ) {
+    this.searchModel = '';
+    this.searchModelEvent = new EventEmitter<string>();
     this.recognition = this.recognitionService.create();
-    this.recognition.onresult = this.handleRecognitionResult;
-    this.recognition.onerror = this.handleRecognitionError;
+    this.recognition.onresult = this.handleRecognitionResult.bind(this);
+    this.recognition.onerror = this.handleRecognitionError.bind(this);
+    this.focusSubject = new Subject<string>();
+    this.clickSubject = new Subject<string>();
   }
 
   ngOnInit() {
@@ -37,15 +47,24 @@ export class SearchBoxComponent implements OnInit {
       return false;
     }
     this.searchModel = event.results[0][0].transcript;
+    this.searchModelEvent.emit(this.searchModel);
     return true;
   }
   handleRecognitionError(event: any): boolean {
     return !event;
   }
-  searchTypeAhead(textObs: Observable<string>): Observable<string[]> {
-    return textObs.pipe(debounceTime(200),
-      distinctUntilChanged(),
-      map(term => [])
-    );
+  searchTypeAhead = (textObs: Observable<string>) => {
+    let texts = this.texts;
+    const debouncedText = textObs.pipe(debounceTime(200), distinctUntilChanged());
+    const clicksWithClosedPopup = this.clickSubject.pipe(filter(() => !this.typeAheadInstance.isPopupOpen()));
+    const inputFocus = this.focusSubject;
+
+    return merge(debouncedText, inputFocus, clicksWithClosedPopup).pipe(
+      map(term => (term === '' ? texts
+        : this.texts.filter(
+          value => value.toLowerCase().includes(term.toLowerCase())
+        )
+      )
+      ));
   }
 }

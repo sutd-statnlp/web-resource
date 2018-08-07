@@ -27,4 +27,9 @@ describe('DiscussionService', () => {
     expect(discussions).not.toBeNull();
     expect(discussions.length).toBeGreaterThan(0);
   }));
+  it('should return list of titles', inject([DiscussionService], (service: DiscussionService) => {
+    let titles = service.getTitles()
+    expect(titles).not.toBeNull();
+    expect(titles.length).toBeGreaterThan(0);
+  }));
 });

@@ -28,8 +28,17 @@ describe('DiscussionListComponent', () => {
     expect(component.discussions).not.toBeNull();
     expect(component.discussions.length).toBeGreaterThan(0);
   });
-  it('should have search model', () => {
-    expect(component.searchModel).not.toBeNull();
-    expect(component.searchModel).toEqual('');
+  it('should have searchText', () => {
+    expect(component.searchText).not.toBeNull();
+    expect(component.searchText).toEqual('');
+  });
+  it('searchModelEvent should set searchText', () => {
+    const text = 'AAAA';
+    component.searchModelEvent(text);
+    expect(component.searchText).toEqual(text);
+  });
+  it('should list of discussion titles', () => {
+    expect(component.discussionTitles).not.toBeNull();
+    expect(component.discussionTitles.length).toBeGreaterThan(0);
   });
 });

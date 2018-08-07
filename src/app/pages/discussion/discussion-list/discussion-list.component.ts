@@ -9,15 +9,20 @@ import { DiscussionService } from '../../../core';
 export class DiscussionListComponent implements OnInit {
   discussions: any;
   recognition: any;
-  searchModel: string;
+  searchText: string;
+  discussionTitles: string[];
 
   constructor(
     private discussionService: DiscussionService
   ) {
-    this.searchModel = '';
+    this.searchText = '';
   }
 
   ngOnInit() {
     this.discussions = this.discussionService.all();
+    this.discussionTitles = this.discussionService.getTitles();
+  }
+  searchModelEvent(text: string) {
+    this.searchText = text;
   }
 }

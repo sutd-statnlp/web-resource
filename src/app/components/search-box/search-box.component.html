@@ -5,8 +5,9 @@
         <i class="fa fa-search"></i>
       </span>
     </div>
-    <input [(ngModel)]="searchModel" [ngbTypeahead]="searchTypeAhead" class="form-control form-control-alternative text-black input-search" [placeholder]="placeholder"
-      type="text">
+    <input [(ngModel)]="searchModel" [ngbTypeahead]="searchTypeAhead" class="form-control form-control-alternative text-black input-search"
+      [placeholder]="placeholder" (focus)="focusSubject.next($event.target.value)" (click)="clickSubject.next($event.target.value)"
+      #typeAheadInstance="ngbTypeahead" type="text">
     <div class="input-group-prepend" placement="bottom" container="body" ngbTooltip="Search by voice">
       <a (click)="startDictation()" href="javascript:;" class="input-group-text a-microphone">
         <i class="fa fa-microphone"></i>

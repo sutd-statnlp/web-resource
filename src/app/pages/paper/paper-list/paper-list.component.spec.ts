@@ -19,7 +19,6 @@ describe('PaperListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaperListComponent);
     component = fixture.componentInstance;
-    component.searchModel = '';
     fixture.detectChanges();
   });
 
@@ -30,7 +29,12 @@ describe('PaperListComponent', () => {
     expect(component.papers).not.toBeNull();
     expect(component.papers.length).toBeGreaterThan(0);
   });
-  it('should have a search model', () => {
-    expect(component.searchModel).not.toBeNull();
+  it('should have a search text', () => {
+    expect(component.searchText).not.toBeNull();
+  });
+  it('should have a searchModelEvent', () => {
+    const text = 'AAAA';
+    component.searchModelEvent(text);
+    expect(component.searchText).toEqual(text);
   });
 });
