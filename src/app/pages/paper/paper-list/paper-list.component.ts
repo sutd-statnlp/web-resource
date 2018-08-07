@@ -9,6 +9,7 @@ import { PaperService } from '../../../core';
 export class PaperListComponent implements OnInit {
   papers: any;
   searchText: string;
+  paperKeywords: string[];
 
   constructor(
     private paperService: PaperService
@@ -18,6 +19,7 @@ export class PaperListComponent implements OnInit {
 
   ngOnInit() {
     this.papers = this.paperService.all();
+    this.paperKeywords = this.paperService.getKeywords();
   }
 
   searchModelEvent(text: string) {

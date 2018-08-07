@@ -35,4 +35,9 @@ describe('PaperService', () => {
     expect(papers).not.toBeNull();
     expect(papers.length).toBeGreaterThan(0);
   }));
+  it('should return list of keywords', inject([PaperService], (service: PaperService) => {
+    let keywords = service.getKeywords()
+    expect(keywords).not.toBeNull();
+    expect(keywords.length).toBeGreaterThan(6);
+  }));
 });

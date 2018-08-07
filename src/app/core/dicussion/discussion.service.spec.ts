@@ -32,4 +32,9 @@ describe('DiscussionService', () => {
     expect(titles).not.toBeNull();
     expect(titles.length).toBeGreaterThan(0);
   }));
+  it('should return list of keywords', inject([DiscussionService], (service: DiscussionService) => {
+    let keywords = service.getKeywords()
+    expect(keywords).not.toBeNull();
+    expect(keywords.length).toBeGreaterThan(6);
+  }));
 });

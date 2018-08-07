@@ -12,7 +12,7 @@
   <div class="container pt-lg-md">
     <div class="row justify-content-center mb-lg">
       <div class="col-lg-7">
-        <app-search-box (searchModelEvent)="searchModelEvent($event)" placeholder="Search papers"></app-search-box>
+        <app-search-box [texts]="paperKeywords" (searchModelEvent)="searchModelEvent($event)" placeholder="Search papers"></app-search-box>
       </div>
     </div>
     <div class="row justify-content-center">

@@ -37,8 +37,8 @@ describe('DiscussionListComponent', () => {
     component.searchModelEvent(text);
     expect(component.searchText).toEqual(text);
   });
-  it('should list of discussion titles', () => {
-    expect(component.discussionTitles).not.toBeNull();
-    expect(component.discussionTitles.length).toBeGreaterThan(0);
+  it('should list of discussion keywords', () => {
+    expect(component.discussionKeywords).not.toBeNull();
+    expect(component.discussionKeywords.length).toBeGreaterThan(0);
   });
 });

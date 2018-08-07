@@ -51,13 +51,13 @@ describe('SearchBoxComponent', () => {
     expect(component.handleRecognitionError({})).toBeFalsy();
     expect(component.handleRecognitionError(null)).toBeTruthy();
   });
-  it('should have a placeholder', () => {
+  it('should have a undefined input of placeholder ', () => {
     expect(component.placeholder).toBeUndefined()
   });
   it('should have a searchTypeAhead', () => {
     expect(component.searchTypeAhead(new Observable<string>())).not.toBeNull();
   });
-  it('should have a list of texts', () => {
+  it('should have a undefined input of list of keywords', () => {
     expect(component.texts).toBeUndefined();
   });
   it('should have a focus subject', () => {

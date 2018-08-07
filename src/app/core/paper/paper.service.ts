@@ -4,9 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PaperService {
-
-  constructor() { }
-
+  getKeywords(): string[] {
+    return [
+      'Embedding',
+      'Text classification',
+      'semantic regularities',
+      'Long Short-Term Memory',
+      'semantic-level coverage',
+      'look-up keys',
+      'neural components'
+    ]
+  }
   special(): any {
     return this.recent();
   }

@@ -4,6 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DiscussionService {
+  getKeywords(): string[] {
+    return [
+      'Modelling',
+      'neural',
+      'structure-label',
+      'transition-based',
+      'constituency parsing',
+      'optimal dynamic oracle',
+      'Self-Attentive Encoder'
+    ]
+  }
   getTitles(): string[] {
     let titles = [];
     this.all().forEach(item => {

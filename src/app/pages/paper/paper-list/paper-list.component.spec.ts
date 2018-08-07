@@ -37,4 +37,8 @@ describe('PaperListComponent', () => {
     component.searchModelEvent(text);
     expect(component.searchText).toEqual(text);
   });
+  it('should have list of paper keywords', () => {
+    expect(component.paperKeywords).not.toBeNull();
+    expect(component.paperKeywords.length).toBeGreaterThan(0);
+  });
 });

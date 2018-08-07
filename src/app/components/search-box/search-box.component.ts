@@ -60,10 +60,10 @@ export class SearchBoxComponent implements OnInit {
     const inputFocus = this.focusSubject;
 
     return merge(debouncedText, inputFocus, clicksWithClosedPopup).pipe(
-      map(term => (term === '' ? texts
+      map(term => (term === '' ? texts.slice(0, 4)
         : this.texts.filter(
           value => value.toLowerCase().includes(term.toLowerCase())
-        )
+        ).slice(0, 4)
       )
       ));
   }

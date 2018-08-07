@@ -10,7 +10,7 @@ export class DiscussionListComponent implements OnInit {
   discussions: any;
   recognition: any;
   searchText: string;
-  discussionTitles: string[];
+  discussionKeywords: string[];
 
   constructor(
     private discussionService: DiscussionService
@@ -20,7 +20,7 @@ export class DiscussionListComponent implements OnInit {
 
   ngOnInit() {
     this.discussions = this.discussionService.all();
-    this.discussionTitles = this.discussionService.getTitles();
+    this.discussionKeywords = this.discussionService.getKeywords();
   }
   searchModelEvent(text: string) {
     this.searchText = text;
