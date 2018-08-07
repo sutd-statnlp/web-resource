@@ -1,17 +1,19 @@
-<div class="form-group shadow-lg--hover">
-  <div class="input-group input-group-alternative mb-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text">
-        <i class="fa fa-search"></i>
-      </span>
-    </div>
-    <input [(ngModel)]="searchModel" [ngbTypeahead]="searchTypeAhead" class="form-control form-control-alternative text-black input-search"
-      [placeholder]="placeholder" (focus)="focusSubject.next($event.target.value)" (click)="clickSubject.next($event.target.value)"
-      #typeAheadInstance="ngbTypeahead" type="text">
-    <div class="input-group-prepend" placement="bottom" container="body" ngbTooltip="Search by voice">
-      <a (click)="startDictation()" href="javascript:;" class="input-group-text a-microphone">
-        <i class="fa fa-microphone"></i>
-      </a>
+<form (ngSubmit)="submitSearch()" novalidate>
+  <div class="form-group shadow-lg--hover">
+    <div class="input-group input-group-alternative mb-4">
+      <div class="input-group-prepend">
+        <a (click)="submitSearch()" href="javascript:;" class="input-group-text">
+          <i class="fa fa-search"></i>
+        </a>
+      </div>
+      <input name="searchModel" [(ngModel)]="searchModel" [ngbTypeahead]="searchTypeAhead" class="form-control form-control-alternative text-black input-search"
+        [placeholder]="placeholder" (focus)="focusSubject.next($event.target.value)" (click)="clickSubject.next($event.target.value)"
+        #typeAheadInstance="ngbTypeahead" [focusFirst]="false" type="text">
+      <div class="input-group-prepend" placement="bottom" container="body" ngbTooltip="Search by voice">
+        <a (click)="startDictation()" href="javascript:;" class="input-group-text a-microphone">
+          <i class="fa fa-microphone"></i>
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</form>

@@ -1,7 +1,7 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ShareModule } from '../../share';
-import { PaperListComponent, PAPER_LIST_ROUTE } from './paper-list';
+import { PaperListComponent, PAPER_LIST_ROUTE, PaperListPipe } from './paper-list';
 import { PaperDetailComponent, PAPER_DETAIL_ROUTE } from './paper-detail';
 
 @NgModule({
@@ -12,7 +12,11 @@ import { PaperDetailComponent, PAPER_DETAIL_ROUTE } from './paper-detail';
       PAPER_DETAIL_ROUTE
     ])
   ],
-  declarations: [PaperDetailComponent, PaperListComponent],
+  declarations: [
+    PaperDetailComponent,
+    PaperListComponent,
+    PaperListPipe
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PaperModule { }

@@ -12,7 +12,7 @@ export class DiscussionService {
       'transition-based',
       'constituency parsing',
       'optimal dynamic oracle',
-      'Self-Attentive Encoder'
+      'span representation'
     ]
   }
   getTitles(): string[] {
