@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { PaperService } from '../../../core';
+import { PaperService, IPaper } from '../../../core';
 
 @Component({
   selector: 'app-paper-detail',
@@ -9,19 +9,29 @@ import { PaperService } from '../../../core';
   styleUrls: ['./paper-detail.component.scss']
 })
 export class PaperDetailComponent implements OnInit {
+  paper: IPaper;
   id: string;
-  paper: any;
+  nextId: string;
+  previousId: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
     private paperService: PaperService,
     private sanitizer: DomSanitizer
   ) {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    route.params.subscribe(() => this.initialize());
   }
 
   ngOnInit() {
-    this.paper = this.paperService.get(this.id);
+    this.initialize();
+  }
+
+  initialize() {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.id = id;
+    this.paper = this.paperService.get(id);
+    this.previousId = this.paperService.getPreviousID(id);
+    this.nextId = this.paperService.getNextID(id);
   }
 
   sanitizeResourceUrl(url: string) {

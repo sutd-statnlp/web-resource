@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DiscussionService } from '../../../core';
+import { DiscussionService, IDiscussion } from '../../../core';
 
 @Component({
   selector: 'app-discussion-detail',
@@ -8,10 +8,10 @@ import { DiscussionService } from '../../../core';
   styleUrls: ['./discussion-detail.component.scss']
 })
 export class DiscussionDetailComponent implements OnInit {
-  discussion: any;
+  discussion: IDiscussion;
   id: string;
-  nextId: any;
-  previousId: any;
+  nextId: string;
+  previousId: string;
 
   constructor(
     private route: ActivatedRoute,

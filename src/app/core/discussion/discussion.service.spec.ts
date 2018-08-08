@@ -23,29 +23,28 @@ describe('DiscussionService', () => {
     expect(service).toBeTruthy();
   }));
   it('should return list of all discussions', inject([DiscussionService], (service: DiscussionService) => {
-    let discussions = service.all()
-    expect(discussions).not.toBeNull();
-    expect(discussions.length).toBeGreaterThan(0);
+    service.all().subscribe(items => {
+      expect(items).not.toBeNull();
+      expect(items.length).toBeGreaterThan(0);
+    })
   }));
   it('should return list of special discussions', inject([DiscussionService], (service: DiscussionService) => {
-    let discussions = service.special()
-    expect(discussions).not.toBeNull();
-    expect(discussions.length).toBeGreaterThan(0);
+    service.special().subscribe(items => {
+      expect(items).not.toBeNull();
+      expect(items.length).toBeGreaterThan(0);
+    })
   }));
   it('should return list of recent discussions', inject([DiscussionService], (service: DiscussionService) => {
-    let discussions = service.recent()
-    expect(discussions).not.toBeNull();
-    expect(discussions.length).toBeGreaterThan(0);
-  }));
-  it('should return list of titles', inject([DiscussionService], (service: DiscussionService) => {
-    let titles = service.getTitles()
-    expect(titles).not.toBeNull();
-    expect(titles.length).toBeGreaterThan(0);
+    service.recent().subscribe(items => {
+      expect(items).not.toBeNull();
+      expect(items.length).toBeGreaterThan(0);
+    })
   }));
   it('should return list of keywords', inject([DiscussionService], (service: DiscussionService) => {
-    let keywords = service.getKeywords()
-    expect(keywords).not.toBeNull();
-    expect(keywords.length).toBeGreaterThan(6);
+    service.getKeywords().subscribe(items => {
+      expect(items).not.toBeNull();
+      expect(items.length).toBeGreaterThan(6);
+    })
   }));
   it('loadMap should return a map', inject([DiscussionService], (service: DiscussionService) => {
     let map = service.loadMap(list);
@@ -68,6 +67,20 @@ describe('DiscussionService', () => {
 
     discussion = service.get('KAKA');
     expect(discussion).toBeNull();
+  }));
+  it('getIdByOffset should return an id', inject([DiscussionService], (service: DiscussionService) => {
+    expect(service.setList(list)).toBeTruthy();
+    let id = service.getOffsetID(DEFAULT_ID, 1);
+    expect(id).not.toBeNull();
+
+    id = service.getOffsetID(SECOND_ID, -1);
+    expect(id).not.toBeNull();
+
+    id = service.getOffsetID(SECOND_ID, 2);
+    expect(id).toBeNull();
+
+    id = service.getOffsetID('KAKA', 1);
+    expect(id).toBeNull();
   }));
   it('getNextID should return an id', inject([DiscussionService], (service: DiscussionService) => {
     expect(service.setList(list)).toBeTruthy();

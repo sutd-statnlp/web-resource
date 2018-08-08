@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IDiscussion } from '../../core';
 
 @Component({
   selector: 'app-discussion-item',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./discussion-item.component.scss']
 })
 export class DiscussionItemComponent implements OnInit {
-  @Input() discussion: any;
+  @Input() discussion: IDiscussion;
   @Input() hoverAction: string = 'card-lift--hover';
 
   constructor() { }

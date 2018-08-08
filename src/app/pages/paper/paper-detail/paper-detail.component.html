@@ -11,7 +11,7 @@
   </div>
   <div class="container pt-lg-md">
     <div class="row justify-content-center profile-page mt-lg">
-      <div class="col-lg-12">
+      <div class="col-lg-12" *ngIf="paper">
         <div class="card card-profile shadow border-0">
           <div class="px-4">
             <div class="row justify-content-center">
@@ -23,8 +23,8 @@
               </div>
               <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                 <div class="card-profile-actions py-4 mt-lg-0">
-                  <a href="#" class="btn btn-sm btn-primary mr-4">Previous</a>
-                  <a href="#" class="btn btn-sm btn-primary float-right">Next</a>
+                    <button [disabled]="!previousId" [routerLink]="['/papers/' + previousId]" class="btn btn-sm btn-primary mr-4">Prev</button>
+                    <button [disabled]="!nextId" [routerLink]="['/papers/' + nextId]" class="btn btn-sm btn-primary float-right">Next</button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1">

@@ -20,7 +20,7 @@ describe('PaperItemComponent', () => {
     component.paper = {
       id: '',
       title: '',
-      abstract: ``,
+      abs: ``,
       link: '',
       pdf: '',
       authors: 0,

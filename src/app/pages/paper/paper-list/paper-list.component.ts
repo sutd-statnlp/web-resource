@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PaperService } from '../../../core';
+import { PaperService, IPaper } from '../../../core';
 
 @Component({
   selector: 'app-paper-list',
@@ -7,7 +7,7 @@ import { PaperService } from '../../../core';
   styleUrls: ['./paper-list.component.scss']
 })
 export class PaperListComponent implements OnInit {
-  papers: any;
+  papers: IPaper[];
   searchText: string;
   paperKeywords: string[];
 
@@ -18,8 +18,11 @@ export class PaperListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.papers = this.paperService.all();
-    this.paperKeywords = this.paperService.getKeywords();
+    this.paperService.all()
+      .subscribe(items => this.papers = items);
+
+    this.paperService.getKeywords()
+      .subscribe(items => this.paperKeywords = items);
   }
 
   searchModelEvent(text: string) {

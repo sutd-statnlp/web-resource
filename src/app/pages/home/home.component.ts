@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DiscussionService, PaperService } from '../../core';
+import { DiscussionService, PaperService, IPaper, IDiscussion } from '../../core';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +8,21 @@ import { DiscussionService, PaperService } from '../../core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  recentPapers: any;
-  recentDiscussions: any;
-  newPapers: any;
+  recentPapers: IPaper[];
+  recentDiscussions: IDiscussion[];
+  newPapers: IPaper[];
 
   constructor(
     private discussionService: DiscussionService,
     private paperService: PaperService
   ) { }
   ngOnInit() {
-    this.recentPapers = this.paperService.recent();
-    this.recentDiscussions = this.discussionService.recent();
-    this.newPapers = this.paperService.news();
+    this.paperService.recent()
+      .subscribe(items => this.recentPapers = items);
+    this.discussionService.recent()
+      .subscribe(items => this.recentDiscussions = items);
+    this.paperService.news()
+      .subscribe(items => this.newPapers = items);
   }
 
 }

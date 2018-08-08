@@ -12,7 +12,7 @@ describe('PaperListPipe', () => {
     let papers = pipe.transform([
       {
         title: 'Hello World',
-        abstract: `Let's make a Hello World app for fun!`
+        abs: `Let's make a Hello World app for fun!`
       }
     ], 'hell')
     expect(papers).not.toBeNull();

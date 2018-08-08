@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IPaper } from '../../core';
 
 @Component({
   selector: 'app-paper-item',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./paper-item.component.scss']
 })
 export class PaperItemComponent implements OnInit {
-  @Input() paper: any;
+  @Input() paper: IPaper;
   @Input() icon: string = 'ni ni-paper-diploma';
 
   constructor() { }
