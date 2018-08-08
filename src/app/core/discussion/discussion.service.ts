@@ -4,26 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DiscussionService {
-  getKeywords(): string[] {
-    return [
-      'Modelling',
-      'neural',
-      'structure-label',
-      'transition-based',
-      'constituency parsing',
-      'optimal dynamic oracle',
-      'span representation'
-    ]
-  }
-  getTitles(): string[] {
-    let titles = [];
-    this.all().forEach(item => {
-      titles.push(item.title);
-    });
-    return titles;
-  }
-  special(): any {
-    return [
+  private list: any[];
+  private map: Map<string, number>;
+  constructor () {
+    this.list = [
       {
         id: '99a756e2-bfd9-49db-b193-9b2cc0c4cae4',
         title: 'Modelling the past and future',
@@ -53,14 +37,78 @@ export class DiscussionService {
         nextMeeting: `We will be discussing the paper "Constituency Parsing with a Self-Attentive Encoder" .`
       }
     ]
+    this.map = this.loadMap(this.list);
   }
-  recent(): any {
-    return this.special();
+  loadMap(list: any[]): Map<string, number> {
+    let map = new Map<string,number>();
+    for (let index = 0; index < list.length; index++) {
+      const item = list[index];
+      map.set(item.id, index);
+    }
+    return map;
   }
-  all(): any {
-    return this.recent().concat(this.recent());
+  getKeywords(): string[] {
+    return [
+      'Modelling',
+      'neural',
+      'structure-label',
+      'transition-based',
+      'constituency parsing',
+      'optimal dynamic oracle',
+      'span representation'
+    ]
+  }
+  getTitles(): string[] {
+    let titles = [];
+    this.all().forEach(item => {
+      titles.push(item.title);
+    });
+    return titles;
+  }
+  special(): any[] {
+    return this.list;
+  }
+  recent(): any[] {
+    return this.list;
+  }
+  all(): any[] {
+    return this.list;
+  }
+  getIndex(id: string): number {
+    return this.map.get(id);
   }
   get(id: string): any {
-    return this.recent()[0];
+    let index = this.getIndex(id);
+    if (index === undefined) {
+      return null;
+    }
+    return this.list[index];
+  }
+  setList(list: any[]): boolean {
+    this.list = list;
+    this.map = this.loadMap(this.list);
+    return this.map.size > 0;
+  }
+  getNextID(id: string): string {
+    let index = this.getIndex(id);
+    if (index === undefined) {
+      return null;
+    }
+    index = index + 1;
+    if (index >= this.list.length || index < 0) {
+      return null;
+    }
+    return this.list[index].id;
+  }
+  getPreviousID(id: string): string {
+    let index = this.getIndex(id);
+    if (index === undefined) {
+      return null;
+    }
+    index = index - 1;
+    if (index >= this.list.length || index < 0) {
+      return null;
+    }
+    return this.list[index].id;
   }
 }

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { FakeShareModule } from '~/../test';
 import { DiscussionDetailComponent } from './discussion-detail.component';
 
 describe('DiscussionDetailComponent', () => {
@@ -13,11 +14,15 @@ describe('DiscussionDetailComponent', () => {
           return DEFAULT_ID;
         }
       }
+    },
+    params: {
+      subscribe: () => {}
     }
   } as ActivatedRoute;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FakeShareModule],
       declarations: [DiscussionDetailComponent],
       providers: [{ provide: ActivatedRoute, useValue: mockActivatedRoute }],
     })
@@ -33,9 +38,15 @@ describe('DiscussionDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should have a dicussion', () => {
+  it('should have id and a dicussion', () => {
     expect(component.id).not.toBeNull();
     expect(component.id).toEqual(DEFAULT_ID);
-    expect(component.discussion).not.toBeNull();
+    expect(component.discussion).toBeNull();
+  });
+  it('should have null nextId', () => {
+    expect(component.nextId).toBeNull();
+  });
+  it('should have null previousId', () => {
+    expect(component.previousId).toBeNull();
   });
 });

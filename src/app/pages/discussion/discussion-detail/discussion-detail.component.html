@@ -9,9 +9,15 @@
     <span></span>
     <span></span>
   </div>
-  <div class="container pt-lg-md">
+  <div class="container pt-lg-md  mb-lg">
+    <div class="row justify-content-center mt-lg mb-lg">
+    </div>
+  </div>
+</section>
+<section class="section section-lg pt-lg-0 mt--400">
+  <div class="container">
     <div class="row justify-content-center profile-page mt-lg">
-      <div class="col-lg-10">
+      <div class="col-lg-10" *ngIf="discussion">
         <div class="card card-profile shadow border-0">
           <div class="px-4">
             <div class="row justify-content-center">
@@ -23,8 +29,8 @@
               </div>
               <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                 <div class="card-profile-actions py-4 mt-lg-0">
-                  <a href="#" class="btn btn-sm btn-primary mr-4">Previous</a>
-                  <a href="#" class="btn btn-sm btn-primary float-right">Next</a>
+                  <button [disabled]="!previousId" [routerLink]="['/discussions/' + previousId]" class="btn btn-sm btn-primary mr-4">Prev</button>
+                  <button [disabled]="!nextId" [routerLink]="['/discussions/' + nextId]" class="btn btn-sm btn-primary float-right">Next</button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1">

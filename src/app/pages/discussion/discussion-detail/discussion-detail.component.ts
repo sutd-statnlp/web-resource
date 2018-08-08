@@ -10,16 +10,25 @@ import { DiscussionService } from '../../../core';
 export class DiscussionDetailComponent implements OnInit {
   discussion: any;
   id: string;
+  nextId: any;
+  previousId: any;
 
   constructor(
     private route: ActivatedRoute,
     private discussionService: DiscussionService
   ) {
-    this.id = this.route.snapshot.paramMap.get('id');
+    route.params.subscribe(() => this.initialize());
   }
 
   ngOnInit() {
-    this.discussion = this.discussionService.get(this.id);
+    this.initialize();
   }
 
+  initialize() {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.id = id;
+    this.discussion = this.discussionService.get(id);
+    this.previousId = this.discussionService.getPreviousID(id);
+    this.nextId = this.discussionService.getNextID(id);
+  }
 }
