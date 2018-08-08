@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { PaperDetailComponent } from './paper-detail.component';
-import { FakeShareModule } from '~/../test';
+import { FakeShareModule } from 'test';
 
 describe('PaperDetailComponent', () => {
   let component: PaperDetailComponent;

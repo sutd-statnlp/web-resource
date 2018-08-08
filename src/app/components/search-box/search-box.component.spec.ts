@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBoxComponent } from './search-box.component';
-import { FakeShareModule } from '~/../test';
+import { FakeShareModule } from 'test';
 import { Observable } from 'rxjs';
 
 describe('SearchBoxComponent', () => {

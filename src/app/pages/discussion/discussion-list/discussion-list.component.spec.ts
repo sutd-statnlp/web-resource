@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DiscussionListComponent } from './discussion-list.component';
 import { DiscussionItemComponent, SearchBoxComponent } from '../../../components';
 import { DiscussionListPipe } from './discussion-list.pipe';
-import { FakeShareModule } from '~/../test';
+import { FakeShareModule } from 'test';
 
 describe('DiscussionListComponent', () => {
   let component: DiscussionListComponent;

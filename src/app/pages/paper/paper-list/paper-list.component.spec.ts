@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaperListComponent } from './paper-list.component';
-import { FakeShareModule } from '~/../test';
+import { FakeShareModule } from 'test';
 import { PaperItemComponent, SearchBoxComponent } from '../../../components';
 import { PaperListPipe } from './paper-list.pipe';
 

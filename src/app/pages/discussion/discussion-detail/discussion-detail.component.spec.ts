@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { FakeShareModule } from '~/../test';
+import { FakeShareModule } from 'test';
 import { DiscussionDetailComponent } from './discussion-detail.component';
 
 describe('DiscussionDetailComponent', () => {

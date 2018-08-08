@@ -1,4 +1,4 @@
-import { IModel } from '../mode.interace';
+import { IModel } from '../model.interace';
 
 export interface IPaper extends IModel {
   title?: string;

@@ -1,6 +1,6 @@
 
 import { Observable, of} from 'rxjs';
-import { IModel } from './mode.interace';
+import { IModel } from './model.interace';
 
 export abstract class AbstractService<T extends IModel> {
   protected list: T[];
