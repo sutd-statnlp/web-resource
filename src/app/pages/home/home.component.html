@@ -21,13 +21,13 @@
             <span class="display-4 text-white">share with everyone</span>
             <p class="lead text-white font-weight-bold">We share our papers, discussions and more. Let's discover what we have!</p>
             <div class="btn-wrapper">
-              <a [routerLink]="['/papers']" class="btn btn-white btn-icon mb-3 mb-sm-0">
+              <a [routerLink]="['/papers']" class="btn btn-white btn-icon mb-3 mb-sm-0 animated bounceInUp">
                 <span class="btn-inner--icon">
                   <i class="fa fa-book"></i>
                 </span>
                 <span class="btn-inner--text">All Papers</span>
               </a>
-              <a [routerLink]="['/discussions']" class="btn btn-white btn-icon mb-3 mb-sm-0">
+              <a [routerLink]="['/discussions']" class="btn btn-white btn-icon mb-3 mb-sm-0 animated bounceInUp">
                 <span class="btn-inner--icon">
                   <i class="fa fa-comments"></i>
                 </span>
@@ -41,7 +41,7 @@
   </section>
   <!-- 1st Hero Variation -->
 </div>
-<section class="section section-lg pt-lg-0 mt--200 pb-0">
+<section class="section section-lg pt-lg-0 mt-a--200 pb-0">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
@@ -128,7 +128,7 @@
             <h4 class="display-3 text-white">New Papers</h4>
           </div>
         </div>
-        <div *ngFor="let item of recentPapers" class="mt-5">
+        <div *ngFor="let item of newPapers" class="mt-5">
           <app-paper-item [paper]="item" icon="fa fa-newspaper-o"></app-paper-item>
         </div>
       </div>

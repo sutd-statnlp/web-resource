@@ -9,16 +9,16 @@
     <span></span>
     <span></span>
   </div>
-  <div class="container pt-lg-md  mb-lg">
+  <div class="container pt-lg-md mb-lg">
     <div class="row justify-content-center mt-lg mb-lg">
     </div>
   </div>
 </section>
-<section class="section section-lg pt-lg-0 mt--400">
+<section class="section section-lg pt-lg-0 mt-a--300">
   <div class="container">
     <div class="row justify-content-center profile-page mt-lg">
       <div class="col-lg-10" *ngIf="discussion">
-        <div class="card card-profile shadow border-0">
+        <div class="card card-profile shadow border-0 animated fadeInUp">
           <div class="px-4">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
@@ -28,13 +28,13 @@
                 </div>
               </div>
               <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                <div class="card-profile-actions py-4 mt-lg-0">
+                <div class="card-profile-actions py-md-4 mt-0">
                   <button [disabled]="!previousId" [routerLink]="['/discussions/' + previousId]" class="btn btn-sm btn-primary mr-4">Prev</button>
                   <button [disabled]="!nextId" [routerLink]="['/discussions/' + nextId]" class="btn btn-sm btn-primary float-right">Next</button>
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1">
-                <div class="card-profile-stats d-flex justify-content-start">
+                <div class="card-profile-stats d-flex justify-content-center justify-content-md-start">
                   <div>
                     <span class="heading">{{discussion.attendees}}</span>
                     <span class="description">Attendees</span>

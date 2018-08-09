@@ -1,4 +1,4 @@
-<div class="card shadow shadow-lg--hover">
+<div class="card shadow shadow-lg--hover animated bounceInUp">
   <div class="card-body">
     <div class="d-flex px-0">
       <div>
@@ -8,7 +8,7 @@
       </div>
       <div class="pl-4">
         <a [routerLink]="['/papers/' + paper.id]">
-          <h5 class="title font-weight-bold">{{paper.title}}</h5>
+          <h6 class="title font-weight-bold">{{paper.title}}</h6>
         </a>
         <p class="text-black">{{paper.abs}}</p>
         <a [routerLink]="['/papers/' + paper.id]" class="text-primary">Read more</a>
