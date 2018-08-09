@@ -1,17 +1,19 @@
-<div class="card shadow shadow-lg--hover animated bounceInUp">
-  <div class="card-body">
-    <div class="d-flex px-0">
-      <div>
-        <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-          <i [class]="icon"></i>
+<div class="animated bounceInUp">
+  <div class="card shadow shadow-lg--hover">
+    <div class="card-body">
+      <div class="d-flex px-0">
+        <div>
+          <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+            <i [class]="icon"></i>
+          </div>
         </div>
-      </div>
-      <div class="pl-4">
-        <a [routerLink]="['/papers/' + paper.id]">
-          <h6 class="title font-weight-bold">{{paper.title}}</h6>
-        </a>
-        <p class="text-black">{{paper.abs}}</p>
-        <a [routerLink]="['/papers/' + paper.id]" class="text-primary">Read more</a>
+        <div class="pl-4">
+          <a [routerLink]="['/papers/' + paper.id]">
+            <h6 class="title font-weight-bold">{{paper.title}}</h6>
+          </a>
+          <p class="text-black">{{paper.abs}}</p>
+          <a [routerLink]="['/papers/' + paper.id]" class="text-primary">Read more</a>
+        </div>
       </div>
     </div>
   </div>
