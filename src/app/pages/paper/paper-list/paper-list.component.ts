@@ -15,6 +15,8 @@ export class PaperListComponent implements OnInit {
     private paperService: PaperService
   ) {
     this.searchText = '';
+    this.papers = [];
+    this.paperKeywords = [];
   }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { PaperService } from './paper.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PaperService', () => {
   const DEFAULT_ID = 'AAAA';
@@ -15,6 +16,7 @@ describe('PaperService', () => {
   ];
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [PaperService]
     });
   });

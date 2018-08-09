@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IDiscussion, Discussion } from '../../core';
+import { IDiscussion, Discussion, IPaper } from '../../core';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,16 @@ export class DataUtilService {
       discussions.push(item);
     });
     return discussions;
+  }
+  convertSheetDataToPapers(data: any): IPaper[] {
+    let items = this.getArrayDataFromSheet(data);
+    let papers: IPaper[] = [];
+    items.forEach(item => {
+      item.authors = parseInt(item.authors);
+      item.pages = parseInt(item.pages);
+      papers.push(item);
+    });
+    return papers;
   }
   convertSheetStringToArray(input: string): string[] {
     return input.split(',,');

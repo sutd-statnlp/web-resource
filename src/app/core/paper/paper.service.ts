@@ -1,91 +1,68 @@
 import { Injectable } from '@angular/core';
 import { AbstractService } from '../abstract.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IPaper } from './paper.model';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { DataUtilService } from '../../share';
+import { API_PAPER_ALL_URL, API_PAPER_RECENT_URL, API_PAPER_SPECIAL_URL, API_PAPER_KEYWORD_URL, API_PAPER_NEW_URL } from 'src/app/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaperService extends AbstractService<IPaper> {
-  constructor() {
+  constructor(
+    private http: HttpClient,
+    private dataUtilService: DataUtilService
+  ) {
     super();
-    let list = [
-      {
-        id: 'f94c9f99-aff8-4466-88fd-85717c20438c',
-        title: 'Modelling the past and future for neural machine translation',
-        abs: `Existing neural machine translation systems
-        do not explicitly model what has been translated
-        and what has not during the decoding
-        phase...`,
-        link: 'http://aclweb.org/anthology/Q18-1011',
-        pdf: 'http://aclweb.org/anthology/Q18-1011',
-        authors: 7,
-        pages: 4
-      },
-      {
-        id: 'e6fcc1c7-4583-4686-a147-39af058489f0',
-        title: 'Joint Embedding of Words and Labels for Text Classification',
-        abs: `Word embeddings are effective intermediate representations for capturing semantic regularities between words, when learning...`,
-        link: 'https://arxiv.org/abs/1805.04174',
-        pdf: 'https://arxiv.org/pdf/1805.04174.pdf',
-        authors: 8,
-        pages: 11
-      },
-      {
-        id: 'ee536e08-0e27-497c-b197-ff1846ff5bea',
-        title: 'Modelling the past and future for neural machine translation',
-        abs: `Existing neural machine translation systems
-        do not explicitly model what has been translated
-        and what has not during the decoding
-        phase...`,
-        link: 'http://aclweb.org/anthology/Q18-1011',
-        pdf: 'http://aclweb.org/anthology/Q18-1011',
-        authors: 7,
-        pages: 4
-      },
-      {
-        id: '2b4ca614-a949-4708-8e00-99cf0ef58b58',
-        title: 'Joint Embedding of Words and Labels for Text Classification',
-        abs: `Word embeddings are effective intermediate representations for capturing semantic regularities between words, when learning...`,
-        link: 'https://arxiv.org/abs/1805.04174',
-        pdf: 'https://arxiv.org/pdf/1805.04174.pdf',
-        authors: 8,
-        pages: 11
-      }
-    ]
-    this.setList(list);
+    this.all().subscribe(items => {
+      this.setList(items);
+    })
   }
   getKeywords(): Observable<string[]> {
-    return of(
-      [
-        'Embedding',
-        'Text classification',
-        'semantic regularities',
-        'Long Short-Term Memory',
-        'semantic-level coverage',
-        'look-up keys',
-        'neural components'
-      ]
+    return this.http.get<string[]>(API_PAPER_KEYWORD_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToStrings(item);
+      }),
+      catchError(this.handleError('get all papers', []))
     );
   }
-  special(): Observable<any[]> {
-    return of(
-      this.list.slice(0, 2)
+  special(): Observable<IPaper[]> {
+    return this.http.get<IPaper[]>(API_PAPER_SPECIAL_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToPapers(item);
+      }),
+      catchError(this.handleError('get special papers', []))
     );
   }
-  recent(): Observable<any[]> {
-    return of(
-      this.list.slice(0, 2)
+  recent(): Observable<IPaper[]> {
+    return this.http.get<IPaper[]>(API_PAPER_RECENT_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToPapers(item);
+      }),
+      catchError(this.handleError('get recent papers', []))
     );
   }
-  all(): Observable<any[]> {
-    return of(
-      this.list
-    );
+  all(): Observable<IPaper[]> {
+    return this.http.get<IPaper[]>(API_PAPER_ALL_URL).
+      pipe(
+        map(item => {
+          return this.dataUtilService.convertSheetDataToPapers(item);;
+        }),
+        catchError(this.handleError('get all papers', []))
+      );
   }
   news():  Observable<any[]>  {
-    return of (
-      this.list.slice(0, 2)
-    );
+    return this.http.get<IPaper[]>(API_PAPER_NEW_URL).
+      pipe(
+        map(item => {
+          return this.dataUtilService.convertSheetDataToPapers(item);;
+        }),
+        catchError(this.handleError('get new papers', []))
+      );
   }
 }

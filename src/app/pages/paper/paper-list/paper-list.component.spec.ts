@@ -33,7 +33,6 @@ describe('PaperListComponent', () => {
   });
   it('should have list of papers', () => {
     expect(component.papers).not.toBeNull();
-    expect(component.papers.length).toBeGreaterThan(0);
   });
   it('should have a search text', () => {
     expect(component.searchText).not.toBeNull();
@@ -45,7 +44,6 @@ describe('PaperListComponent', () => {
   });
   it('should have list of paper keywords', () => {
     expect(component.paperKeywords).not.toBeNull();
-    expect(component.paperKeywords.length).toBeGreaterThan(0);
   });
   it('isSearching should return true or false', () => {
     expect(component.isSearching()).toBeFalsy();

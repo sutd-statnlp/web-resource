@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ShareSectionComponent } from '../share-section/share-section.component';
 import { FakeShareModule } from 'test';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -12,7 +13,7 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FakeShareModule],
+      imports: [NgHttpLoaderModule, FakeShareModule],
       declarations: [
         MainComponent,
         NavbarComponent,

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AbstractService } from '../abstract.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IDiscussion } from './discussion.model';
 import { HttpClient } from '@angular/common/http';
-import { API_DISCUSSION_ALL_URL, API_DISCUSSION_RECENT_URL, API_DISCUSSION_SPECIAL_URL, API_DISCUSSION_KEYWORD_URL } from '../../app.constants';
+import { API_DISCUSSION_ALL_URL, API_DISCUSSION_RECENT_URL, API_DISCUSSION_SPECIAL_URL, API_DISCUSSION_KEYWORD_URL } from 'src/app/app.constants';
 import { catchError, map } from 'rxjs/operators';
-import { DataUtilService } from '../../share';
+import { DataUtilService } from 'src/app/share';
 
 @Injectable({
   providedIn: 'root'
