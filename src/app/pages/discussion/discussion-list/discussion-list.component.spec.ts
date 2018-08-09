@@ -32,7 +32,6 @@ describe('DiscussionListComponent', () => {
   });
   it('should list of discussions', () => {
     expect(component.discussions).not.toBeNull();
-    expect(component.discussions.length).toBeGreaterThan(0);
   });
   it('should have searchText', () => {
     expect(component.searchText).not.toBeNull();
@@ -45,7 +44,6 @@ describe('DiscussionListComponent', () => {
   });
   it('should list of discussion keywords', () => {
     expect(component.discussionKeywords).not.toBeNull();
-    expect(component.discussionKeywords.length).toBeGreaterThan(0);
   });
   it('isSearching should return true or false', () => {
     expect(component.isSearching()).toBeFalsy();

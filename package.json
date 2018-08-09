@@ -6,7 +6,7 @@
     "config": "ts-node ./set-env.ts",
     "start": "npm run config -- --env=dev && ng serve --configuration=dev",
     "build": "npm run config -- --env=prod && ng build --prod",
-    "test": "ng test",
+    "test": "ng test --watch=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cov": "ng test --watch=false --code-coverage"

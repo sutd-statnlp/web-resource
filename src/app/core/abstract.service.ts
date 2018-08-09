@@ -1,16 +1,16 @@
 
-import { Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { IModel } from './model.interace';
 
 export abstract class AbstractService<T extends IModel> {
   protected list: T[];
   protected map: Map<string, number>;
-  constructor () {
+  constructor() {
     this.list = [];
     this.map = new Map<string, number>();
   }
   loadMap(list: T[]): Map<string, number> {
-    let map = new Map<string,number>();
+    let map = new Map<string, number>();
     for (let index = 0; index < list.length; index++) {
       const item = list[index];
       map.set(item.id, index);
@@ -53,7 +53,14 @@ export abstract class AbstractService<T extends IModel> {
   getPreviousID(id: string): string {
     return this.getOffsetID(id, -1);
   }
-  getAbstractAll(): Observable<T[]>{
+  getAbstractAll(): Observable<T[]> {
     return of(this.list);
+  }
+  handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

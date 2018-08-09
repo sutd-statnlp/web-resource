@@ -1,11 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppRouterModule } from '../../app-routing.module';
-
 import { MainComponent } from './main.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ShareSectionComponent } from '../share-section/share-section.component';
+import { FakeShareModule } from 'test';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -13,7 +12,7 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppRouterModule],
+      imports: [FakeShareModule],
       declarations: [
         MainComponent,
         NavbarComponent,

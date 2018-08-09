@@ -16,6 +16,8 @@ export class DiscussionListComponent implements OnInit {
     private discussionService: DiscussionService
   ) {
     this.searchText = '';
+    this.discussions = [];
+    this.discussionKeywords = [];
   }
 
   ngOnInit() {

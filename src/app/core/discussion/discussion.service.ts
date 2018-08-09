@@ -2,100 +2,58 @@ import { Injectable } from '@angular/core';
 import { AbstractService } from '../abstract.service';
 import { Observable, of } from 'rxjs';
 import { IDiscussion } from './discussion.model';
+import { HttpClient } from '@angular/common/http';
+import { API_DISCUSSION_ALL_URL, API_DISCUSSION_RECENT_URL, API_DISCUSSION_SPECIAL_URL, API_DISCUSSION_KEYWORD_URL } from '../../app.constants';
+import { catchError, map } from 'rxjs/operators';
+import { DataUtilService } from '../../share';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiscussionService extends AbstractService<IDiscussion> {
-  constructor() {
+  constructor(
+    private http: HttpClient,
+    private dataUtilService: DataUtilService
+  ) {
     super();
-    let list = [
-      {
-        id: '99a756e2-bfd9-49db-b193-9b2cc0c4cae4',
-        title: 'Modelling the past and future',
-        sub: `Presentation of paper "Modelling the past and future for neural machine translation" by Allan.`,
-        date: new Date('2018-07-25'),
-        tags: ['SIS Neural', 'Modelling'],
-        attendees: 8,
-        sections: [
-          `Adding FUTURE and PAST two vectors to the attention based NMT model to keep track of the content which has been translated and hasn't been translated. The FUTURE layer is initialized with the last hidden state of the encoder and updated with subtraction ideally. The PAST layer is initialized with 0 vector and updated with addition.`,
-          `Explicit soft loss added for FUTURE and PAST two vectors to make sure certain consistency between the updates in FUTURE/PAST vector and the generated word's embedding in the timestamp.`,
-          `An experiment shows that the initialization of attention-based decoder doesn't make much difference.`
-        ],
-        nextMeeting: 'Presentation of paper "Attention is All You Need" by Zhang Yan.'
-      },
-      {
-        id: 'a3950520-12df-4f67-bf2c-fb8f80377a83',
-        title: 'Using structure-label system',
-        sub: `We discussed the paper on constituency parsing using structure-label system and provably optimal dynamic oracles.`,
-        date: new Date('2018-07-31'),
-        tags: ['SIS Parsing', 'structure-label'],
-        attendees: 8,
-        sections: [
-          `We discussed the paper on constituency parsing using structure-label system and provably optimal dynamic oracles.`,
-          `They used spans as elements in the stacks of their transition-based systems and proved a optimal dynamic oracle to reach the final configuration.`,
-          `Takeaway: we can use the difference between the foward (backward) LSTMs at two positions as the span representation.`
-        ],
-        nextMeeting: `We will be discussing the paper "Constituency Parsing with a Self-Attentive Encoder" .`
-      },
-      {
-        id: 'ee536e08-0e27-497c-b197-ff1846ff5bea',
-        title: 'Modelling the past and future',
-        sub: `Presentation of paper "Modelling the past and future for neural machine translation" by Allan.`,
-        date: new Date('2018-07-25'),
-        tags: ['SIS Neural', 'Modelling'],
-        attendees: 8,
-        sections: [
-          `Adding FUTURE and PAST two vectors to the attention based NMT model to keep track of the content which has been translated and hasn't been translated. The FUTURE layer is initialized with the last hidden state of the encoder and updated with subtraction ideally. The PAST layer is initialized with 0 vector and updated with addition.`,
-          `Explicit soft loss added for FUTURE and PAST two vectors to make sure certain consistency between the updates in FUTURE/PAST vector and the generated word's embedding in the timestamp.`,
-          `An experiment shows that the initialization of attention-based decoder doesn't make much difference.`
-        ],
-        nextMeeting: 'Presentation of paper "Attention is All You Need" by Zhang Yan.'
-      },
-      {
-        id: '2b4ca614-a949-4708-8e00-99cf0ef58b58',
-        title: 'Using structure-label system',
-        sub: `We discussed the paper on constituency parsing using structure-label system and provably optimal dynamic oracles.`,
-        date: new Date('2018-07-31'),
-        tags: ['SIS Parsing', 'structure-label'],
-        attendees: 8,
-        sections: [
-          `We discussed the paper on constituency parsing using structure-label system and provably optimal dynamic oracles.`,
-          `They used spans as elements in the stacks of their transition-based systems and proved a optimal dynamic oracle to reach the final configuration.`,
-          `Takeaway: we can use the difference between the foward (backward) LSTMs at two positions as the span representation.`
-        ],
-        nextMeeting: `We will be discussing the paper "Constituency Parsing with a Self-Attentive Encoder" .`
-      }
-    ];
-
-    this.setList(list);
+    this.all().subscribe(items => {
+      this.setList(items);
+    })
   }
   getKeywords(): Observable<string[]> {
-    return of(
-      [
-        'Modelling',
-        'neural',
-        'structure-label',
-        'transition-based',
-        'constituency parsing',
-        'optimal dynamic oracle',
-        'span representation'
-      ]
+    return this.http.get<string[]>(API_DISCUSSION_KEYWORD_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToStrings(item);
+      }),
+      catchError(this.handleError('get all discussions', []))
     );
   }
   special(): Observable<IDiscussion[]> {
-    return of(
-      this.list.slice(0, 2)
+    return this.http.get<IDiscussion[]>(API_DISCUSSION_SPECIAL_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToDiscussions(item);
+      }),
+      catchError(this.handleError('get special discussions', []))
     );
   }
   recent(): Observable<IDiscussion[]> {
-    return of(
-      this.list.slice(0, 2)
+    return this.http.get<IDiscussion[]>(API_DISCUSSION_RECENT_URL).
+    pipe(
+      map(item => {
+        return this.dataUtilService.convertSheetDataToDiscussions(item);
+      }),
+      catchError(this.handleError('get recent discussions', []))
     );
   }
   all(): Observable<IDiscussion[]> {
-    return of(
-      this.list
-    );
+    return this.http.get<IDiscussion[]>(API_DISCUSSION_ALL_URL).
+      pipe(
+        map(item => {
+          return this.dataUtilService.convertSheetDataToDiscussions(item);;
+        }),
+        catchError(this.handleError('get all discussions', []))
+      );
   }
 }

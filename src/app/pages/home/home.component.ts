@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private discussionService: DiscussionService,
     private paperService: PaperService
-  ) { }
+  ) {
+    this.recentPapers = [];
+    this.recentDiscussions = [];
+    this.newPapers = [];
+  }
   ngOnInit() {
     this.paperService.recent()
       .subscribe(items => this.recentPapers = items);

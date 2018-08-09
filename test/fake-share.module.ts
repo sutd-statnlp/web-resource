@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterTestingModule
+    RouterTestingModule,
+    HttpClientTestingModule
   ],
   declarations: [],
   exports: [
@@ -19,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     FormsModule,
     NgbModule,
-    RouterTestingModule
+    RouterTestingModule,
+    HttpClientTestingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -7,8 +7,6 @@ export const environment = {
   debugInfoEnabled: true,
   apiUrl: '',
   apiKey: '',
-  sheetId: '',
-
 };
 
 /*

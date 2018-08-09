@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { FakeShareModule } from 'test';
 
 import { DiscussionItemComponent, PaperItemComponent } from '../../components';
 import { HomeComponent } from './home.component';
@@ -10,7 +10,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [FakeShareModule],
       declarations: [HomeComponent, DiscussionItemComponent, PaperItemComponent]
     })
       .compileComponents();
@@ -27,14 +27,11 @@ describe('HomeComponent', () => {
   });
   it('should have list of recent discussions', () => {
     expect(component.recentDiscussions).not.toBeNull();
-    expect(component.recentDiscussions.length).toBeGreaterThan(0);
   });
   it('should have list of recent papers', () => {
     expect(component.recentPapers).not.toBeNull();
-    expect(component.recentPapers.length).toBeGreaterThan(0);
   });
   it('should have list of new papers', () => {
     expect(component.newPapers).not.toBeNull();
-    expect(component.newPapers.length).toBeGreaterThan(0);
   });
 });

@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
     private discussionService: DiscussionService,
     private paperService: PaperService
   ) {
-
+    this.specialPapers = [];
+    this.specialDiscussions = [];
   }
   ngOnInit() {
     this.paperService.special()

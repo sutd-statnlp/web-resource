@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { FakeShareModule } from 'test';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -9,7 +9,7 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [FakeShareModule],
       declarations: [NavbarComponent]
     })
       .compileComponents();
@@ -26,10 +26,8 @@ describe('NavbarComponent', () => {
   });
   it('should have list of special papers', () => {
     expect(component.specialPapers).not.toBeNull();
-    expect(component.specialPapers.length).toBeGreaterThan(0);
   });
   it('should have list of special discussions', () => {
     expect(component.specialDiscussions).not.toBeNull();
-    expect(component.specialDiscussions.length).toBeGreaterThan(0);
   });
 });
