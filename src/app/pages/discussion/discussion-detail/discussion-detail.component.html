@@ -58,7 +58,7 @@
               <div class="row justify-content-center">
                 <div class="col-lg-10 text-justify">
                   <p *ngFor="let item of discussion.sections">{{item}}</p>
-                  <div class="alert alert-default" role="alert">
+                  <div *ngIf="discussion.nextMeeting" class="alert alert-default" role="alert">
                     <strong>Next meeting: </strong> {{discussion.nextMeeting}}
                   </div>
                 </div>
